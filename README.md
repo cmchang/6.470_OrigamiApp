@@ -1,8 +1,7 @@
 Origami
 ===========
-@bchrobot
-@idr
-@ksf
+
+Created by bchrobot, idr, ksf
 
 Deployed at http://origami.meteor.com
 
