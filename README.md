@@ -5,4 +5,4 @@ Created by bchrobot, idr, ksf
 
 Deployed at http://origami.meteor.com
 
-Design documentation in ```design-documentation``` folder
+Milestone 1 at ```/milestone1/milestone1.md```
