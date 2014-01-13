@@ -44,6 +44,11 @@ Site Design
 -----------
 1. Hand Drawn Mockup
     1. 
+    ![Final Mockup](http://github.mit.edu/mit6470/Chipotle.me/raw/master/milestone1/sketch-mockup-1.jpg "Sketch Mockup 1")
+    2. 
+    ![Final Mockup](http://github.mit.edu/mit6470/Chipotle.me/raw/master/milestone1/sketch-mockup-2.jpg "Sketch Mockup 1")
+    3. 
+    ![Final Mockup](http://github.mit.edu/mit6470/Chipotle.me/raw/master/milestone1/sketch-mockup-3.jpg "Sketch Mockup 1")
 2. *See above*
 3. Final Mockup
 
