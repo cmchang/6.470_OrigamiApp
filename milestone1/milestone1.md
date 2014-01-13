@@ -44,10 +44,19 @@ Site Design
 -----------
 1. Hand Drawn Mockup
     1. 
+        + Pros: Simple design - possibly useful for mobile design
+        + Cons: Hard to understand exactly what all the circles actually represent
+        + Image:
     ![Final Mockup](http://github.mit.edu/mit6470/Chipotle.me/raw/master/milestone1/sketch-mockup-1.jpg "Sketch Mockup 1")
     2. 
+        + Pros: "Make My Day" button, time selection
+        + Cons: Options too limited, too game-ey looking
+        + Image:
     ![Final Mockup](http://github.mit.edu/mit6470/Chipotle.me/raw/master/milestone1/sketch-mockup-2.jpg "Sketch Mockup 1")
     3. 
+        + Pros: Nice and clean, maps are nice :)
+        + Cons: Not a whole lot of information on the screen - might not be conducive to intuitive interaction
+        + Image:
     ![Final Mockup](http://github.mit.edu/mit6470/Chipotle.me/raw/master/milestone1/sketch-mockup-3.jpg "Sketch Mockup 1")
 2. *See above*
 3. Final Mockup
