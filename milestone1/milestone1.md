@@ -46,6 +46,7 @@ Site Design
     1. 
 2. *See above*
 3. Final Mockup
+![Final Mockup](http://github.mit.edu/mit6470/Chipotle.me/blob/master/milestone1/markdown.png "Final Mockup")
 
 
 Minimum Viable Product
