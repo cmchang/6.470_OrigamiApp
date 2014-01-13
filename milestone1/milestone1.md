@@ -5,24 +5,25 @@ Origame :: Milestone 1
 
 User Research
 -------------
-1. #### The Problem
+1. **The Problem**
     Many city inhabitants, ranging from the freshly-unpacked to the life-long residents, have explored only a small fraction of what their city has to offer.
     #### The Solution
     Origami lets users unfold their city and discover the many gems hidden throughout its streets through indivudally tailored itineraries.
 
-2. #### Killer Features
+2. **Killer Features**
     + Makes planning a day out on the town very easy
     + Keeps track of where you’ve been in order to suggest new places each time you go out
+    + Takes into account environmental factors like weather and season as well as user specified limitations like time ranges or the presence of children
     + Gamified interaction keeps users engaged and promotes continued exploration of their cities
     + Takes advantage of HTML5 Javascript APIs like Media Capture and Geolocation to allow users to document their adventures
 
 
-3. #### Target Demographic
+3. **Target Demographic**
     + Our target demographic will be residents who have been living in an area for less than five years. These residents are least likely to have explored the lesser-known offerings of a city.
     + We expect this New Residents group to consist of  a younger demographic - people who have not yet settled down. Thus, they will likely be tech savvy, own a smartphone, and be able to take advantage of mobile-specific bonus features.
 
 
-4. #### Use Case
+4. **Use Case**
 
 | User       | Origami Response |
 |:-----------|:-----------------|
@@ -49,26 +50,28 @@ Site Design
 
 Minimum Viable Product
 ----------------------
-1. #### Target Features
+1. **Target Features**
     + Hands-off day planning
     + Gamification of urban exploration
-2. #### Next-Version Features
+2. **Next-Version Features**
+    + Weather awareness
     + Javascript Media Capture, Geolocation, and other mobile goodies
-3. We will only be supporting Boston/Cambridge in our MVP
+3. **Other Limitations**
+    + We will only be supporting Boston/Cambridge in our MVP
 
 
 Additional Questions
 --------------------
-1. #### Team Members
+1. **Team Members**
     + Benjamin Blair Chrobot, bchrobot@mit.edu, MIT, 6.2, 2015, undergraduate, competition only
     + Ian Dedalus Reynolds, ird@mit.edu, MIT, undeclared, 2017, undergraduate, registered
     + Kenneth Shaw Friedman, ksf@mit.edu, MIT, undeclared 2017, undergraduate, registered
-2. #### Theme
+2. **Theme**
     + Urban Exploration
-3. #### Server-side
+3. **Server-side**
     + Meteor.js
-4. #### Potential Roadblocks
+4. **Potential Roadblocks**
     + Poor management of time
     + Difficulty integrating APIs
-5. #### Competition
+5. **Competition**
     + Competing in main devision
