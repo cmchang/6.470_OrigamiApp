@@ -1,0 +1,39 @@
+<template name="header">
+
+  <div class="header">
+    <a class="logo-link" href="{{pathFor 'landing'}}">Origami</a>
+    <div class="user-links pull-right">
+      <ul>
+        {{#if currentUser}}
+          {{> sessionLinks}}
+        {{else}}
+          {{> guestLinks}}
+        {{/if}}
+      </ul>
+    </div>
+  </div>
+
+</template>
+
+
+
+<template name="sessionLinks">
+
+  <li>
+    <a href="#">USER</a>
+    <ul>
+      <li><a href="#">Profile</a></li>
+      <li><a href="#">Settings</a></li>
+      <li><a href="#">Log Out</a></li>
+    </ul>
+  </li>
+
+</template>
+
+
+<template name="guestLinks">
+
+  <li><a href="{{pathFor 'signUp'}}">Sign Up</a></li>
+  <li><a href="{{pathFor 'logIn'}}">Log In</a></li>
+
+</template>

@@ -1,6 +1,8 @@
 {
   "packages": {
     "iron-router": {},
-    "scss": {}
+    "scss": {},
+    "leaflet": {},
+    "hammer": {}
   }
 }

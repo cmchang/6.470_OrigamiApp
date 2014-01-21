@@ -1,0 +1,169 @@
+// Global Constants
+$link-color: rgb( 52, 52, 52 );
+
+// Header Constants
+$header-height: 60px;
+$header-bg: rgba( 255, 255, 255, 0.9 );
+
+
+// Global Styles
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+body {
+  overflow: hidden;
+}
+  a {
+    text-decoration: none;
+    color: $link-color;
+  }
+  .pull-right {
+    float: right;
+  }
+  .centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+  }
+  .full-page {
+    position: absolute;
+    top: 100px;
+    right: 40px;
+    bottom: 40px;
+    left: 40px;
+    background: $header-bg;
+    overflow-x: scroll;
+  }
+
+
+// Map Styles
+#map {
+  height: 100%;
+}
+
+// Header Styles
+.header {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  background: $header-bg;
+}
+  .logo-link {
+    padding-left: 50px;
+    line-height: $header-height;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0 20px;
+  }
+  .user-links {
+
+    font-size: 0;
+
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      position: relative;
+      display: inline-table;
+
+      ul {
+        display: none;
+        position: absolute;
+        top: 100%;
+        background: #5f6975;
+        border-radius: 0px;
+        padding: 0;
+
+        &:after {
+          content: "";
+          clear: both;
+          display: block;
+        }
+
+        ul {
+          position: absolute;
+          left: 100%;
+          top:0;
+        }
+
+        li {
+          float: none;
+          position: relative;
+          border-top: 1px solid #6b727c;
+          border-bottom: 1px solid #575f6a;
+
+          a {
+            padding-left: 50px;
+            color: #fff;
+
+            &:hover {
+              background: #4b545f;
+            }
+          }
+        }
+      }
+
+      li {
+        float: left;
+        width: 200px;
+        line-height: $header-height;
+
+        &:hover {
+          background: #4b545f;
+
+          a {
+            color: #fff;
+          }
+
+          &> ul {
+            display: block;
+          }
+        }
+
+        a {
+          padding-left: 20px;
+          display: block;
+          font-size: 12pt;
+          color: #757575;
+        }
+      }
+    }
+  }
+
+
+// Landing Page Styles
+.landing-hero {
+  width: 400px;
+  height: 200px;
+  margin: -100px 0 0 -200px;
+  background: #F00;
+  text-align: center;
+
+  a {
+    padding: 5px 10px;
+    background: #0F0;
+  }
+}
+
+
+// Signup Styles
+.sign-up, .log-in {
+  width: 100%;
+  text-align: center;
+  input {
+    display: block;
+    margin: 10px auto;
+  }
+}
+
+
+// The Fold Styles
+.the-fold {
+  position: absolute;
+  top: 100px;
+  right: 40px;
+  width: 300px;
+  background: $header-bg;
+}

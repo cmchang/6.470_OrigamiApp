@@ -9,3 +9,6 @@ iron-router
 jquery
 underscore
 scss
+leaflet
+hammer
+accounts-password
