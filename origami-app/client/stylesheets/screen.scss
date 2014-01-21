@@ -42,6 +42,12 @@ body {
 #map {
   height: 100%;
 }
+// path { stroke-linejoin: round; stroke-linecap: round; fill: none}
+path.river { stroke : #24b; }
+path.road { stroke: #b42; }
+path.water { stroke: #bcf; fill: #abf; }
+path.landuse { stroke: #bb2; fill: #cc2; opacity: 0.4 }
+path.building { stroke: #f00; fill: #f00; }
 
 // Header Styles
 .header {
