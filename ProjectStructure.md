@@ -2,13 +2,12 @@
 
 | Location             | Note                 |
 | -------------------- | ---------------------|
-| dibs-meteor/         | _the Meteor application_  |
+| origami-meteor/         | _the Meteor application_  |
 | milestone1/          | _files for Milestone 1_  |
-| python-backend/      | _Python code for scraping emails_  |
 
 
 
-## Dibs-Meteor Application
+## Origami-Meteor Application
 
 _Note that js files in lib folders are loaded before other js files_
 

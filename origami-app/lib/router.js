@@ -1,7 +1,7 @@
 // Default Router configuration
 Router.configure({
   layoutTemplate: 'layout',
-  loadingTemplate: 'loading',
+  loadingTemplate: 'loading'
 });
 
 // Router filters
