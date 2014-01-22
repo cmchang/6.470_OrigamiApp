@@ -13,6 +13,23 @@ Template.map.rendered = function() {
   var baseLayer = new L.TileLayer(openstreetmapURL, { attribution: openstreetmapAttr});
   map.addLayer(baseLayer);
 
+  // Add a fake GeoJSON line to coerce Leaflet into creating the <svg> tag that d3_geoJson needs
+  new L.geoJson({"type": "LineString","coordinates":[[0,0],[0,0]]}).addTo(map);
+
+// Highways from OpenStreetMap
+var roadSizes = {
+  "highway": "5px",
+  "major_road": "3px",
+  "minor_road": "1px",
+  "rail": "0px",
+  "path": "0.5px"
+};
+new L.TileLayer.d3_topoJSON("http://tile.openstreetmap.us/vectiles-highroad/{z}/{x}/{y}.topojson", {
+  class: "road",
+  layerName: "vectile",
+  style: function(d) { return "stroke-width: " + roadSizes[d.properties.kind]; }
+}).addTo(map);
+
 
   // Neighborhoods helpers
 

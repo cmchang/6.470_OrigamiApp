@@ -32,7 +32,6 @@ L.TileLayer.d3_topoJSON =  L.TileLayer.extend({
                 if (error) {
                     console.log(error);
                 } else {
-                    console.log(tjData);
                     var geoJson = topojson.feature(tjData, tjData.objects[self.options.layerName]);
                     tile.xhr = null;
                     tile.nodes = d3.select(map._container).select("svg").append("g");
