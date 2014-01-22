@@ -3,6 +3,8 @@ Template.map.rendered = function() {
   // Create map
   var map = L.map('map', { zoomControl:true });
   map.setView([42.3581, -71.0636], 14);
+  var lc = L.control.locate().addTo(map);
+  map.on('dragstart', lc.stopFollowing);
 
 
   // Add default OSM image tiles
@@ -11,7 +13,9 @@ Template.map.rendered = function() {
                    '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
       cloudmadeURL = 'http://{s}.tile.cloudmade.com/4f8a96ea698c4630b8abdc34097f92e6/119638/256/{z}/{x}/{y}.png';
 
-  var baseLayer = new L.TileLayer(cloudmadeURL, { attribution: openstreetmapAttr});
+  var baseLayer = new L.TileLayer(cloudmadeURL, {
+    buffer: 8
+  });
   map.addLayer(baseLayer);
 
   // Add a fake GeoJSON line to coerce Leaflet into creating the <svg> tag that d3_geoJson needs
@@ -56,7 +60,6 @@ new L.TileLayer.d3_topoJSON("http://tile.openstreetmap.us/vectiles-highroad/{z}/
     // Switch style depending on neighborhood name
     var style = function( feature ) {
       var name = feature.properties.label;
-      console.log(name);
       var returnStyle = defaultStyle;
 
       if( name === "Downtown" ) {
@@ -98,13 +101,17 @@ new L.TileLayer.d3_topoJSON("http://tile.openstreetmap.us/vectiles-highroad/{z}/
   // Create neighborhoods layer
   var neighborhoodsLayer = L.geoJson(null, {
     style: style,
+    class: "mapthing",
     onEachFeature: onEachFeature
   });
   neighborhoodsLayer.addTo(map);
 
   // Populate neighborhoods layer
   $.getJSON('json/boston.json', function (data) {
-    neighborhoodsLayer.addData(data);
+    _.each(data.features, function(feature) {
+      console.log(feature.properties.label);
+      neighborhoodsLayer.addData(feature);
+    });
   });
 
 
