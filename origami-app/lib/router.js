@@ -40,6 +40,12 @@ Router.map(function() {
     before: filters.skipIfLoggedIn
   });
 
+  this.route('logOut', {
+    path: '/log-out',
+    template: 'logOut',
+    before: filters.skipIfLoggedIn
+  });
+
   this.route('theFold', {
     path: '/the-fold',
     template: 'theFold',

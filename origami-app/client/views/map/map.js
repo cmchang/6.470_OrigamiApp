@@ -1,16 +1,17 @@
 Template.map.rendered = function() {
 
   // Create map
-  var map = L.map('map', { zoomControl:false });
+  var map = L.map('map', { zoomControl:true });
   map.setView([42.3581, -71.0636], 14);
 
 
   // Add default OSM image tiles
   var openstreetmapURL = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
       openstreetmapAttr = '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
-                   '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>';
+                   '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+      cloudmadeURL = 'http://{s}.tile.cloudmade.com/4f8a96ea698c4630b8abdc34097f92e6/119638/256/{z}/{x}/{y}.png';
 
-  var baseLayer = new L.TileLayer(openstreetmapURL, { attribution: openstreetmapAttr});
+  var baseLayer = new L.TileLayer(cloudmadeURL, { attribution: openstreetmapAttr});
   map.addLayer(baseLayer);
 
   // Add a fake GeoJSON line to coerce Leaflet into creating the <svg> tag that d3_geoJson needs
@@ -36,11 +37,11 @@ new L.TileLayer.d3_topoJSON("http://tile.openstreetmap.us/vectiles-highroad/{z}/
     // Default style for neighborhood polygon
     var defaultStyle = {
       fillColor: "#FFF",
+      fillOpacity: 0.7,
       weight: 2,
       opacity: 1,
       color: '#000',
       dashArray: '3',
-      fillOpacity: 0.7
     };
 
     // Default style for highlighted neighborhood polygon
@@ -55,6 +56,7 @@ new L.TileLayer.d3_topoJSON("http://tile.openstreetmap.us/vectiles-highroad/{z}/
     // Switch style depending on neighborhood name
     var style = function( feature ) {
       var name = feature.properties.label;
+      console.log(name);
       var returnStyle = defaultStyle;
 
       if( name === "Downtown" ) {

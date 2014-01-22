@@ -9,8 +9,21 @@
       <li>I love lamp</li>
       <li>oh emmm gerrrsss</li>
     </ul>
-    <a href="#">Roll dat piff again</a> | <a href="#">Add Event</a>
+    <a href="#">Roll dat piff again</a> | <a id="special-link" href="#">Add Event</a>
+
+  {{#if special}}
+    {{> special}}
+  {{/if}}
 
   </div>
+
+</template>
+
+
+
+
+<template name="special">
+
+  <h1>SPECIAL</h1>
 
 </template>
