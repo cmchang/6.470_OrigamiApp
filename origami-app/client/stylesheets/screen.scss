@@ -205,8 +205,16 @@ path.building { stroke: #f00; fill: #f00; }
 // The Fold Styles
 .the-fold {
   position: absolute;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 15px;
   top: 100px;
   right: 40px;
   width: 300px;
   background: $header-bg;
+  box-shadow: $modal-box-shadow;
+  font-size: 10pt;
+  h2 {
+    font-weight: 200;
+  }
 }
