@@ -46,10 +46,11 @@ body {
   }
   .full-page {
     position: absolute;
-    top: 100px;
-    right: 40px;
-    bottom: 40px;
-    left: 40px;
+    top: $header-height;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    padding-top: 55px;
     background: none;
     overflow-x: scroll;
   }
