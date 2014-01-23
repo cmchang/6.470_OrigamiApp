@@ -29,12 +29,16 @@ body {
     border-radius: 5px;
     border: none;
     color: white;
-  }
-  .btn:active {
-    position:relative;
-    top:1px;
-  } 
+  
+    &:active {
+      position:relative;
+      top:1px;
+    } 
 
+    &:hover{
+      cursor:pointer;
+    }
+  }
   .pull-right {
     float: right;
     margin-right: 15px;
@@ -283,6 +287,9 @@ path.building { stroke: #f00; fill: #f00; }
     }
     .arrow_next{
       float: right;
+    }
+    &:hover{
+      cursor:pointer;
     }
   }
 }
