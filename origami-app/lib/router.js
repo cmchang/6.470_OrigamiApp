@@ -6,10 +6,9 @@ Router.configure({
 
 // Router filters
 var filters = {
-  requireAuthentication: function() {
-    if (! Meteor.user()) {
-      this.redirect( 'logIn' );
-      this.stop();
+  requireAuthentication: function(){
+    if(_.isNull(Meteor.user())){
+      Router.go(Router.path('landing'));
     }
   },
 
@@ -62,7 +61,7 @@ Router.map(function() {
     data : function() {
       return {
         trips: Trips.find({})
-      }
+      };
     }
   });
 });

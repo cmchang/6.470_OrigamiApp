@@ -5,8 +5,10 @@ if( Meteor.users.find().count() === 0 ) {
   });
 
   Trips.insert({
-  	userId: tempUserId,
-  	name: "trip 1",
-  	params: {}
+    userId: tempUserId,
+    timeOfDay: "evening",
+    mood: 'romantic',
+    energy: 'energetic',
+    moreCrack: 'yes'
   });
 }

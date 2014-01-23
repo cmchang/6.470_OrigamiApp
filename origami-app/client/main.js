@@ -1,16 +1,15 @@
-Meteor.startup(function(){
+yelpQuery = function( terms, location, callback ) {
   var auth = {
     consumerKey: "gbGLJH2Q4TcZY44906xnJg",
     consumerSecret: "0DjD5ERK_Lcmqo8SsKSHP_XAPLs",
-    accessToken: "bc4qW6RssA4uTQsBQ4MXoUprG",
-    accessTokenSecret: "SyuhaAM4S6wGlYktVrwYw",
+    accessToken: "mJy4uE-bc4qW6RssA4uTQsBQ4MXoUprG",
+    accessTokenSecret: "MLmCs-SyuhaAM4S6wGlYktVrwYw",
     serviceProvider: {
       signatureMethod: "HMAC-SHA1"
     }
   };
 
-  var terms = 'food';
-  var near = 'San+Francisco';
+  var near = !!location ? location : "Boston, MA";
 
   var accessor = {
     consumerSecret: auth.consumerSecret,
@@ -46,8 +45,7 @@ Meteor.startup(function(){
     'dataType': 'jsonp',
     'jsonpCallback': 'cb',
     'success': function(data, textStats, XMLHttpRequest) {
-      console.log(data);
-      $("body").append(output);
+      callback(data);
     }
   });
-});
+};
