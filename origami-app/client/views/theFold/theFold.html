@@ -1,31 +1,15 @@
 <template name="theFold">
 
-  <div class="the-fold">
-
-    <h2>You're In Deep Now Ma'boy</h2>
-    <p>There's weather here too?!</p>
-    <ul>
-      <li>Then there's a list of fun things!</li>
-      <li>I love lamp</li>
-      <li>oh emmm gerrrsss</li>
-    </ul>
-    <a href="#">Roll dat piff again</a> | <a id="special-link" href="#">Add Event</a>
-
-    {{#if special}}
-      {{> special}}
-    {{/if}}
-
-  </div>
   <div class = "full-page">
     
     <div class="modal-hero modal0">
       <div>
         <h1>Plan an event for: </h1>
-        <a class = "btn nextModal">Morning</a>
-        <a class = "btn nextModal">Afternoon</a>
-        <a class = "btn nextModal">Evening</a>
-        <a class = "btn nextModal">Night</a>
-        <a class = "btn nextModal">All Day</a>
+        <a class = "btn nextModal" data-event="time:morning">Morning</a>
+        <a class = "btn nextModal" data-event="time:afternoon">Afternoon</a>
+        <a class = "btn nextModal" data-event="time:evening">Evening</a>
+        <a class = "btn nextModal" data-event="time:night">Night</a>
+        <a class = "btn nextModal" data-event="time:all">All Day</a>
       </div>
       <div class = "arrow_container">
         <!-- <a class = "arrow_back"> &lt; Back</a> -->
@@ -36,10 +20,10 @@
     <div class="modal-hero modal1" style = "display:none; width: 500px">
       <div> 
         <h1>Type of event: </h1>
-        <a class = "btn nextModal">Romanitc Date</a>
-        <a class = "btn nextModal">Fun with friends</a>
-        <a class = "btn nextModal">Family Oriented</a>
-        <a class = "btn nextModal">Alone Time</a>
+        <a class = "btn nextModal" data-event="type:romantic">Romanitc Date</a>
+        <a class = "btn nextModal" data-event="type:friends">Fun with Friends</a>
+        <a class = "btn nextModal" data-event="type:family">Family Oriented</a>
+        <a class = "btn nextModal" data-event="type:alone">Alone Time</a>
       </div>
       <div class = "arrow_container">
         <a class = "arrow_back"> &lt; Back</a>
@@ -50,10 +34,10 @@
     <div class="modal-hero modal2" style = "display:none">
       <div>
         <h1>Energy Level:</h1>
-        <a class = "btn nextModal">Energetic</a>
-        <a class = "btn nextModal">Conversation</a>
-        <a class = "btn nextModal">Relaxing</a>
-        <a class = "btn nextModal">Quiet</a>
+        <a class = "btn nextModal" data-event="energy:energetic">Energetic</a>
+        <a class = "btn nextModal" data-event="energy:conversation">Conversation</a>
+        <a class = "btn nextModal" data-event="energy:relaxing">Relaxing</a>
+        <a class = "btn nextModal" data-event="energy:quiet">Quiet</a>
       </div>
       <div class = "arrow_container">
         <a class = "arrow_back"> &lt; Back</a>
@@ -68,16 +52,7 @@
       </div>
       <div class = "arrow_container">
         <a class = "arrow_back"> &lt; Back</a>
-        <a class = "arrow_next"> Skip &gt;</a>
+        <!-- <a class = "arrow_next"> Skip &gt;</a> -->
       </div>
     </div>
-</template>
-
-
-
-
-<template name="special">
-
-  <h1>SPECIAL</h1>
-
 </template>

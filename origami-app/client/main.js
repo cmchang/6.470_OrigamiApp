@@ -45,7 +45,8 @@ yelpQuery = function( terms, location, callback ) {
     'dataType': 'jsonp',
     'jsonpCallback': 'cb',
     'success': function(data, textStats, XMLHttpRequest) {
-      callback(data);
+      console.log(data);
+      // callback(data);
     }
   });
 };

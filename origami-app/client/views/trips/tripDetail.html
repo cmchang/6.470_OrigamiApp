@@ -1,0 +1,23 @@
+<template name="tripDetail">
+
+  <div class="the-fold">
+    <h2>{{trip.name}}</h2>
+
+    {{#if eventss}}
+      <ul>
+        {{#each eventss}}
+          {{> eventDetail}}
+        {{/each}}
+      </ul>
+    {{else}}
+      <h1>No Events</h1>
+    {{/if}}
+    <a href="#">Roll dat piff again</a> | <a id="special-link" href="#">Add Event</a>
+  </div>
+
+</template>
+
+
+<template name="eventDetail">
+  <li>{{name}}</li>
+</template>
