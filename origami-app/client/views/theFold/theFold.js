@@ -14,35 +14,38 @@ Template.theFold.events({
 		return Session.set("isSpecial", !Session.get("isSpecial"));
 	},
 	'click .nextModal': function(e){
-		if (e.target.parentElement.parentElement.classList[1] === "modal0"){
+		var modalID = e.target.parentElement.parentElement.classList[1];
+		if (modalID === "modal0"){
 			changeModal($(".modal0"), $(".modal1"));
-		}else if(e.target.parentElement.parentElement.classList[1] === "modal1"){
+		}else if(modalID === "modal1"){
 			changeModal($(".modal1"), $(".modal2"));
-		}else if(e.target.parentElement.parentElement.classList[1] === "modal2"){
+		}else if(modalID === "modal2"){
 			changeModal($(".modal2"), $(".modal3"));
-		}else if(e.target.parentElement.parentElement.classList[1] === "modal3"){
+		}else if(modalID === "modal3"){
 			changeModal($(".modal3"), $(".the-fold"));
 		}
 
 	},
 	'click .arrow_next' : function(e){
-		if (e.target.parentElement.parentElement.classList[1] == "modal0"){
+		var modalID = e.target.parentElement.parentElement.classList[1]
+		if (modalID == "modal0"){
 			changeModal($(".modal0"), $(".modal1"));
-		}else if (e.target.parentElement.parentElement.classList[1] == "modal1"){
+		}else if (modalID == "modal1"){
 			changeModal($(".modal1"), $(".modal2"));
-		}else if (e.target.parentElement.parentElement.classList[1] == "modal2"){
+		}else if (modalID == "modal2"){
 			changeModal($(".modal2"), $(".modal3"));
-		}else if (e.target.parentElement.parentElement.classList[1] == "modal3"){
+		}else if (modalID == "modal3"){
 			changeModal($(".modal3"), $(".the-fold"));
 		}
 	},
 
 	'click .arrow_back' : function(e){
-		if (e.target.parentElement.parentElement.classList[1] == "modal1"){
+		var modalID = e.target.parentElement.parentElement.classList[1];
+		if (modalID == "modal1"){
 			changeModal($(".modal1"), $(".modal0"));
-		}else if (e.target.parentElement.parentElement.classList[1] == "modal2"){
+		}else if (modalID == "modal2"){
 			changeModal($(".modal2"), $(".modal1"));
-		}else if (e.target.parentElement.parentElement.classList[1] == "modal3"){
+		}else if (modalID == "modal3"){
 			changeModal($(".modal3"), $(".modal2"));
 		}
 	}	
