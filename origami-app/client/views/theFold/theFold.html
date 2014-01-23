@@ -21,51 +21,56 @@
     <div class="modal-hero modal0">
       <div>
         <h1>Plan an event for: </h1>
-        <a class = "btn showFold0">Morning</a>
-        <a class = "btn showFold0">Afternoon</a>
-        <a class = "btn showFold0">Evening</a>
-        <a class = "btn showFold0">Night</a>
-        <a class = "btn showFold0">All Day</a>
+        <a class = "btn nextModal">Morning</a>
+        <a class = "btn nextModal">Afternoon</a>
+        <a class = "btn nextModal">Evening</a>
+        <a class = "btn nextModal">Night</a>
+        <a class = "btn nextModal">All Day</a>
+      </div>
+      <div class = "arrow_container">
+        <!-- <a class = "arrow_back"> &lt; Back</a> -->
+        <a class = "arrow_next"> Skip &gt;</a>
       </div>
     </div>
 
     <div class="modal-hero modal1" style = "display:none; width: 500px">
-      <h1>Type of event: </h1>
-      <a class = "btn showFold1">Romanitc Date</a>
-      <a class = "btn showFold1">Fun with friends</a>
-      <a class = "btn showFold1">Family Oriented</a>
-      <a class = "btn showFold1">Alone Time</a>
+      <div> 
+        <h1>Type of event: </h1>
+        <a class = "btn nextModal">Romanitc Date</a>
+        <a class = "btn nextModal">Fun with friends</a>
+        <a class = "btn nextModal">Family Oriented</a>
+        <a class = "btn nextModal">Alone Time</a>
+      </div>
+      <div class = "arrow_container">
+        <a class = "arrow_back"> &lt; Back</a>
+        <a class = "arrow_next"> Skip &gt;</a>
+      </div>
     </div>
 
     <div class="modal-hero modal2" style = "display:none">
-      <h1>Energy Level:</h1>
-      <a class = "btn showFold2">Energetic</a>
-      <a class = "btn showFold2">Conversation</a>
-      <a class = "btn showFold2">Relaxing</a>
-      <a class = "btn showFold2">Quiet</a>
+      <div>
+        <h1>Energy Level:</h1>
+        <a class = "btn nextModal">Energetic</a>
+        <a class = "btn nextModal">Conversation</a>
+        <a class = "btn nextModal">Relaxing</a>
+        <a class = "btn nextModal">Quiet</a>
+      </div>
+      <div class = "arrow_container">
+        <a class = "arrow_back"> &lt; Back</a>
+        <a class = "arrow_next"> Skip &gt;</a>
+      </div>
     </div>
 
     <div class="modal-hero modal3" style = "display:none">
-      <h1>Ya'll Want EVEN More Crack?</h1>
-      <a class = "btn showFold3">CLICK HERE TO GET IT</a>
+      <div>
+        <h1>Ya'll Want EVEN More Crack?</h1>
+        <a class = "btn nextModal nextModal3">CLICK HERE TO GET IT</a>
+      </div>
+      <div class = "arrow_container">
+        <a class = "arrow_back"> &lt; Back</a>
+        <a class = "arrow_next"> Skip &gt;</a>
+      </div>
     </div>
-
-    <!-- <div class="modal-hero modal1">
-      <h1>Ya'll Want Some More Crack?</h1>
-      <a class = "btn showFold1" href="{{pathFor 'signUp'}}">CLICK HERE TO GET IT</a>
-    </div>
-
-    <div class="modal-hero modal2" style = "display:none">
-      <h1>Ya'll Want Even More Crack?</h1>
-      <a class = "btn showFold2" href="{{pathFor 'signUp'}}">CLICK HERE TO GET IT</a>
-    </div>
-
-    <div class="modal-hero modal3" style = "display:none">
-      <h1>Ya'll Want EVEN More Crack?</h1>
-      <a class = "btn showFold3" href="{{pathFor 'signUp'}}">CLICK HERE TO GET IT</a>
-    </div>
-  </div> -->
-
 </template>
 
 
