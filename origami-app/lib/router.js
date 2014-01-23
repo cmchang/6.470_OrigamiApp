@@ -7,8 +7,9 @@ Router.configure({
 // Router filters
 var filters = {
   requireAuthentication: function(){
-    if(_.isNull(Meteor.user())){
+    if( !Meteor.user() ){
       Router.go(Router.path('landing'));
+      this.stop();
     }
   },
 
@@ -51,7 +52,11 @@ Router.map(function() {
     before: [
       filters.requireAuthentication,
       function() {
-        Session.set("currentTrip", {});
+        Session.set("currentTrip", {
+          time: "evening",
+          type: 'friends',
+          energy: 'conversation'
+        });
       }
     ]
   });
@@ -82,7 +87,7 @@ Router.map(function() {
     data: function() {
       return {
         trip: Trips.findOne(this.params._id),
-        events: Events.find({tripId: this.params._id})
+        eventss: Events.find({tripId: this.params._id})
       };
     },
   });

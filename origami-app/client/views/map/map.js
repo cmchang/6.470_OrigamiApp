@@ -6,8 +6,8 @@ Template.map.rendered = function() {
     // Create map
     var map = L.map('map', { zoomControl:true });
     map.setView([42.3581, -71.0636], 14);
-    var lc = L.control.locate().addTo(map);
-    map.on('dragstart', lc.stopFollowing);
+    // var lc = L.control.locate().addTo(map);
+    // map.on('dragstart', lc.stopFollowing);
 
 
     // Add default OSM image tiles
