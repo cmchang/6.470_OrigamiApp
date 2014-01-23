@@ -15,6 +15,7 @@ if( Meteor.users.find().count() === 0 ) {
     });
 
       Events.insert({
+        tripId: crackTripId,
         name: "Sam LaGrassa's",
         location: {
           address: "44 Province St",
@@ -35,6 +36,7 @@ if( Meteor.users.find().count() === 0 ) {
       });
 
       Events.insert({
+        tripId: crackTripId,
         name: "Coke Park/Whitey's",
         location: {
           address: "268 W Broadway",
