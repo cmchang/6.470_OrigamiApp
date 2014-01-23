@@ -11,9 +11,27 @@
     </ul>
     <a href="#">Roll dat piff again</a> | <a id="special-link" href="#">Add Event</a>
 
-  {{#if special}}
-    {{> special}}
-  {{/if}}
+    {{#if special}}
+      {{> special}}
+    {{/if}}
+
+  </div>
+  <div class = "full-page">
+    
+    <div class="modal-hero modal1">
+      <h1>Ya'll Want Some More Crack?</h1>
+      <a class = "btn showFold1" href="{{pathFor 'signUp'}}">CLICK HERE TO GET IT</a>
+    </div>
+
+    <div class="modal-hero modal2" style = "display:none">
+      <h1>Ya'll Want Even More Crack?</h1>
+      <a class = "btn showFold2" href="{{pathFor 'signUp'}}">CLICK HERE TO GET IT</a>
+    </div>
+
+    <div class="modal-hero modal3" style = "display:none">
+      <h1>Ya'll Want EVEN More Crack?</h1>
+      <a class = "btn showFold3" href="{{pathFor 'signUp'}}">CLICK HERE TO GET IT</a>
+    </div>
 
   </div>
 
