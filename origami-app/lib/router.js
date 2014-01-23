@@ -48,7 +48,12 @@ Router.map(function() {
   this.route('theFold', {
     path: '/the-fold',
     template: 'theFold',
-    before: filters.requireAuthentication
+    before: [
+      filters.requireAuthentication,
+      function() {
+        Session.set("currentTrip", {});
+      }
+    ]
   });
 
   this.route('myTrips', {
