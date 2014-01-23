@@ -37,6 +37,7 @@ body {
 
   .pull-right {
     float: right;
+    margin-right: 15px;
   }
   .centered {
     position: absolute;
@@ -84,7 +85,7 @@ path.building { stroke: #f00; fill: #f00; }
   }
   .user-links {
 
-    font-size: 0;
+    // font-size: 0;
 
     ul {
       margin: 0;
@@ -93,11 +94,11 @@ path.building { stroke: #f00; fill: #f00; }
       position: relative;
       display: inline-table;
 
-      ul {
+      ul {//dropdown menu
         display: none;
         position: absolute;
         top: 100%;
-        background: #5f6975;
+        background: #fff; 
         border-radius: 0px;
         padding: 0;
 
@@ -116,15 +117,15 @@ path.building { stroke: #f00; fill: #f00; }
         li {
           float: none;
           position: relative;
-          border-top: 1px solid #6b727c;
-          border-bottom: 1px solid #575f6a;
+          // border-top: 1px solid #bec2c4;
+          border-bottom: 1px solid #bec2c4;
 
           a {
-            padding-left: 50px;
-            color: #fff;
+            padding-left: 20px;
+            // color: #fff;
 
             &:hover {
-              background: #4b545f;
+              background: #ededed;
             }
           }
         }
@@ -136,10 +137,10 @@ path.building { stroke: #f00; fill: #f00; }
         line-height: $header-height;
 
         &:hover {
-          background: #4b545f;
+          background: #ededed;
 
           a {
-            color: #fff;
+            // color: #fff;
           }
 
           &> ul {
