@@ -1,11 +1,14 @@
 <template name="myTrips">
-
 <div class = "my_trips">
-	<div><h2> My Trips History </h2></div>
-	<ul>
-	{{#each trips}}
-		<li><a href="{{pathFor 'tripDetail' this}}">{{name}}</a></li>
-	{{/each}}
-	</ul>
+<div><h2> My Trips History </h2></div>
+  {{#if trips}}
+    <ul>
+      {{#each trips}}
+        <li><a href="{{pathFor 'tripDetail' this}}">Trip: {{name}}</a></li>
+	    {{/each}}
+    </ul>
+  {{else}}
+    <p>No trips to display</p>
+  {{/if}}
 </div>
 </template>

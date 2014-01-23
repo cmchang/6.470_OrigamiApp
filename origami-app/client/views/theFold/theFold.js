@@ -21,6 +21,7 @@ Template.theFold.events({
 		return Session.set("isSpecial", !Session.get("isSpecial"));
 	},
 	'click .nextModal': function(e){
+		e.preventDefault();
 		var currentTrip = Session.get("currentTrip");
 
 		var modalID = e.target.parentElement.parentElement.classList[1];
@@ -32,6 +33,19 @@ Template.theFold.events({
 			changeModal($(".modal2"), $(".modal3"));
 		}else if(modalID === "modal3"){
 			console.log(currentTrip);
+			Meteor.call("insertTrip",
+				currentTrip.time,
+				currentTrip.type,
+				currentTrip.energy,
+				function( error, tripId ) {
+					if( !error ) {
+						Meteor.call("rollTrip", tripId);
+						Router.go('tripDetail', {_id: tripId});
+					} else {
+						alert(error);
+					}
+				});
+			return;
 		}
 
 		var eventData = e.target.dataset["event"].split(":");

@@ -1,7 +1,10 @@
 mapExists = false;
 Template.map.rendered = function() {
+  console.log("map template rendered");
 
   if(!mapExists) {
+
+    console.log("map instantiated");
 
     // Create map
     var map = L.map('map', { zoomControl:true });
@@ -11,10 +14,7 @@ Template.map.rendered = function() {
 
 
     // Add default OSM image tiles
-    var openstreetmapURL = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-        openstreetmapAttr = '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
-                     '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
-        cloudmadeURL = 'http://{s}.tile.cloudmade.com/4f8a96ea698c4630b8abdc34097f92e6/119638/256/{z}/{x}/{y}.png';
+    var cloudmadeURL = 'http://{s}.tile.cloudmade.com/4f8a96ea698c4630b8abdc34097f92e6/119638/256/{z}/{x}/{y}.png';
 
     var baseLayer = new L.TileLayer(cloudmadeURL, {
       buffer: 8
@@ -90,7 +90,6 @@ Template.map.rendered = function() {
     // Create neighborhoods layer
     var neighborhoodsLayer = L.geoJson(null, {
       style: style,
-      class: "mapthing",
       onEachFeature: onEachFeature
     });
     neighborhoodsLayer.addTo(map);
@@ -98,7 +97,7 @@ Template.map.rendered = function() {
     // Populate neighborhoods layer
     $.getJSON('json/boston.json', function (data) {
       _.each(data.features, function(feature) {
-        // console.log(feature.properties.label);
+        console.log(feature.properties.label);
         neighborhoodsLayer.addData(feature);
       });
     });
