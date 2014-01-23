@@ -55,33 +55,40 @@ yelpQuery = function( terms, location, callback ) {
 
 rollTrip = function( tripId ) {
   var trip = Trips.findOne( tripId );
+  var numFillerEvents = (trip.timeOfDay == "all") ? 3 : 1;
+  
 
   Meteor.call("clearTrip", tripId, function( error, result ) {
-    yelpQuery("bars", "Boston, MA", function(data) {
-      var num = Math.floor(Math.random() * data.businesses.length);
-      var business = data.businesses[num];
-      var newEvent = {
-        tripId: trip._id,
-        name: business.name,
-        location: {
-          address: business.location.address[0],
-          // city: "Boston",
-          // latitude: "",
-          // longitude: "",
-        },
-        phoneNo: business.phoneNo,
-        // image: "http://s3-media1.ak.yelpcdn.com/bphoto/85_HoifJk7HpvkoiDTQI4g/ms.jpg",
-        rating: {
-          yelp: "4.5",
-          user: "",
-        },
-        tripDetails: {
-          order: 1,
-          time: "6:00",
-        }
-      };
-      Events.insert(newEvent);
-    });
+    addEvent(trip._id, "bars");
+    addEvent(trip._id, "bars");
   });
 
+};
+
+addEvent = function ( tripId, query ) {
+  yelpQuery(query, "Boston, MA", function(data) {
+    var num = Math.floor(Math.random() * data.businesses.length);
+    var business = data.businesses[num];
+    var newEvent = {
+      tripId: tripId,
+      name: business.name,
+      location: {
+        address: business.location.address[0],
+        // city: "Boston",
+        // latitude: "",
+        // longitude: "",
+      },
+      phoneNo: business.phoneNo,
+      // image: "http://s3-media1.ak.yelpcdn.com/bphoto/85_HoifJk7HpvkoiDTQI4g/ms.jpg",
+      rating: {
+        yelp: "4.5",
+        user: "",
+      },
+      tripDetails: {
+        order: 1,
+        time: "6:00",
+      }
+    };
+    Events.insert(newEvent);
+  });
 };
