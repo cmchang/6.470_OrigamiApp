@@ -1,4 +1,4 @@
-Origame :: Milestone 1
+Origami :: Milestone 1
 ======================
 
 ----
