@@ -69,4 +69,21 @@ Router.map(function() {
       };
     }
   });
+
+  this.route('tripDetail', {
+    path: '/trip/:_id',
+    template: 'tripDetail',
+    waitOn: function() {
+      return [
+        Meteor.subscribe("tripDetail", this.params._id ),
+        Meteor.subscribe("tripEvents", this.params._id)
+      ];
+    },
+    data: function() {
+      return {
+        trip: Trips.findOne(this.params._id),
+        events: Events.find({tripId: this.params._id})
+      };
+    },
+  });
 });
