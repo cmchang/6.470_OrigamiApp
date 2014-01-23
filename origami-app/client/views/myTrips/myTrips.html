@@ -2,7 +2,7 @@
 
 <div style="position:absolute; top:100px;">
 	{{#each trips}}
-		<a href="{{pathFor 'tripDetail' _id}}">{{name}}</a>
+		<a href="{{pathFor 'tripDetail' this}}">{{name}}</a>
 	{{/each}}
 </div>
 

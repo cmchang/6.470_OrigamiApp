@@ -7,8 +7,10 @@ Router.configure({
 // Router filters
 var filters = {
   requireAuthentication: function(){
-    if( !Meteor.user() ){
-      Router.go(Router.path('landing'));
+    if (!Meteor.user()) {
+      // render the login template but keep the url in the browser the same
+      this.render('logIn');
+      // stop the rest of the before hooks and the action function 
       this.stop();
     }
   },
@@ -43,7 +45,9 @@ Router.map(function() {
   this.route('logOut', {
     path: '/log-out',
     template: 'logOut',
-    before: filters.skipIfLoggedIn
+    before: function() {
+      Meteor.logout();
+    }
   });
 
   this.route('theFold', {

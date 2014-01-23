@@ -24,21 +24,6 @@ Template.map.rendered = function() {
     // Add a fake GeoJSON line to coerce Leaflet into creating the <svg> tag that d3_geoJson needs
     new L.geoJson({"type": "LineString","coordinates":[[0,0],[0,0]]}).addTo(map);
 
-  // Highways from OpenStreetMap
-  var roadSizes = {
-    "highway": "5px",
-    "major_road": "3px",
-    "minor_road": "1px",
-    "rail": "0px",
-    "path": "0.5px"
-  };
-  new L.TileLayer.d3_topoJSON("http://tile.openstreetmap.us/vectiles-highroad/{z}/{x}/{y}.topojson", {
-    class: "road",
-    layerName: "vectile",
-    style: function(d) { return "stroke-width: " + roadSizes[d.properties.kind]; }
-  }).addTo(map);
-
-
     // Neighborhoods helpers
 
       // Default style for neighborhood polygon
@@ -62,18 +47,19 @@ Template.map.rendered = function() {
 
       // Switch style depending on neighborhood name
       var style = function( feature ) {
-        var name = feature.properties.label;
-        var returnStyle = defaultStyle;
+        return defaultStyle;
+        // var name = feature.properties.label;
+        // var returnStyle = defaultStyle;
 
-        if( name === "Downtown" ) {
-          returnStyle.fillColor = "#F00";
-        } else if ( name === "East Cambridge") {
-          returnStyle.fillColor = "#0F0";
-        } else {
-          returnStyle.fillColor = "#FFF";
-        }
+        // if( name === "Downtown" ) {
+        //   returnStyle.fillColor = "#F00";
+        // } else if ( name === "East Cambridge") {
+        //   returnStyle.fillColor = "#0F0";
+        // } else {
+        //   returnStyle.fillColor = "#FFF";
+        // }
 
-        return returnStyle;
+        // return returnStyle;
       };
 
       // mouseover handler
