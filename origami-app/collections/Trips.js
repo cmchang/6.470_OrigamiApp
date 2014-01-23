@@ -17,14 +17,27 @@ Trips.deny({
 
 Meteor.methods({
   insertTrip: function( timeOfDay, mood, energy ) {
-    if( !!timeOfDay && !!mood && !!energy ) {
-      Trips.insert({
-        userId: this.userId,
-        timeOfDay: timeOfDay,
-        mood: mood,
-        energy: energy,
-        moreCrack: "yes"
-      });
-    }
+    var user = Meteor.user();
+
+    // ensure the user is logged in
+    if (!user)
+      throw new Meteor.Error(401, "You need to login to create new trips");
+
+    var trip = {
+      userId: user._id,
+      timeOfDay: timeOfDay,
+      mood: mood,
+      energy: energy,
+      name: "A " + energy + " " + mood + " " + timeOfDay,
+      created: new Date().getTime()
+    };
+
+    var tripId =  Trips.insert(trip);
+  
+    return tripId;
+  },
+
+  clearTrip: function( tripId ) {
+    return Events.remove({tripId: tripId});
   }
 });
