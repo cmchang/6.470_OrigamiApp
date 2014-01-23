@@ -1,5 +1,6 @@
 // Global Constants
 $link-color: rgb( 52, 52, 52 );
+$modal-box-shadow: 0px 4px 15px gray;
 
 // Header Constants
 $header-height: 45px;
@@ -16,11 +17,24 @@ html, body {
 }
 body {
   overflow: hidden;
-}
+
   a {
     text-decoration: none;
     color: $link-color;
   }
+
+  .btn {
+    padding: 5px 10px;
+    background: #00b6ff;
+    border-radius: 5px;
+    border: none;
+    color: white;
+  }
+  .btn:active {
+    position:relative;
+    top:1px;
+  } 
+
   .pull-right {
     float: right;
   }
@@ -35,15 +49,16 @@ body {
     right: 40px;
     bottom: 40px;
     left: 40px;
-    background: $header-bg;
+    background: none;
     overflow-x: scroll;
   }
-
+}
 
 // Map Styles
 #map {
   height: 100%;
 }
+
 // path { stroke-linejoin: round; stroke-linecap: round; fill: none}
 path.river { stroke : #24b; }
 path.road { stroke: #b42; }
@@ -117,7 +132,7 @@ path.building { stroke: #f00; fill: #f00; }
 
       li {
         float: left;
-        width: 200px;
+        width: 95px;
         line-height: $header-height;
 
         &:hover {
@@ -146,19 +161,19 @@ path.building { stroke: #f00; fill: #f00; }
 // Landing Page Styles
 .landing-hero {
   width: 400px;
-  height: 200px;
-  margin: -100px 0 0 -200px;
+  height: 140px;
+  margin: auto;
+  padding:15px;
   background: #FFF;
-  opacity: .9;
   text-align: center;
   border-radius: 3px;
-  box-shadow: 0px 4px 15px gray;
+  box-shadow: $modal-box-shadow;
 
-  a {
-    padding: 5px 10px;
-    background: #0F0;
-    border-radius: 5px;
-  }
+  // a {
+  //   padding: 5px 10px;
+  //   background: #0F0;
+  //   border-radius: 5px;
+  // }
   h1 {
     font-weight: 100;
   }
@@ -167,12 +182,21 @@ path.building { stroke: #f00; fill: #f00; }
 
 // Signup Styles
 .sign-up, .log-in {
-  width: 100%;
+  margin:auto;
+  width: 350px;
+  padding-top: 1px;
+  padding-bottom: 18px;
   text-align: center;
+  background: $header-bg;
+  box-shadow: $modal-box-shadow;
 
   input {
     display: block;
     margin: 10px auto;
+  }
+
+  h2 {
+      font-weight: 100;
   }
 }
 
