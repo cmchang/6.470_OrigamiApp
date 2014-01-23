@@ -3,6 +3,7 @@ Template.tripDetail.events({
     e.preventDefault();
 
     var trip = template.data.trip;
+    console.log(trip);
 
     rollTrip(trip._id);
   },

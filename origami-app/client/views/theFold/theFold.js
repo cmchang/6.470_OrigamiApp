@@ -45,7 +45,7 @@ Template.theFold.events({
 				currentTrip.energy,
 				function( error, tripId ) {
 					if( !error ) {
-						Meteor.call("rollTrip", tripId);
+						rollTrip( tripId );
 						Router.go('tripDetail', {_id: tripId});
 					} else {
 						alert(error);

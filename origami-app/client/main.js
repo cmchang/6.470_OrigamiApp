@@ -42,7 +42,7 @@ yelpQuery = function( terms, location, callback ) {
     'data': parameterMap,
     'cache': true,
     'dataType': 'jsonp',
-    'jsonpCallback': 'cb',
+    // 'jsonpCallback': 'cb',
     'success': function(data, textStats, XMLHttpRequest) {
       if(!!callback) {
         callback(data);
@@ -55,12 +55,113 @@ yelpQuery = function( terms, location, callback ) {
 
 rollTrip = function( tripId ) {
   var trip = Trips.findOne( tripId );
-  var numFillerEvents = (trip.timeOfDay == "all") ? 3 : 1;
+
+  var megaFun = {
+    morning: {
+        meal: {
+            romantic: ["breakfast", "coffee", "cafe", "pancakes", "diner"],
+            friends: ["breakfast", "coffee", "cafe", "pancakes", "diner"],
+            family: ["breakfast", "coffee", "cafe", "pancakes", "diner"],
+            alone: ["breakfast", "coffee", "cafe", "pancakes", "diner"]
+        },
+        activity: {
+            romantic: ["park"],
+            friends: ["park"],
+            family: ["park"],
+            alone: ["park", "library"]
+        }
+    },
+    afternoon: {
+        meal: {
+            romantic: ["italian", "american", "japanese", "sandwiches"],
+            friends: ["italian", "american", "japanese", "sandwiches"],
+            family: ["italian", "american", "japanese", "sandwiches"],
+            alone: ["italian", "american", "japanese", "sandwiches"]
+        },
+        activity: {
+            romantic: ["wine tasting"],
+            friends: ["wine tasting", "rock climbing", "kayaking", "sky zone", "shopping", "bike path"],
+            family: ["museums", "movies", "historical","shopping", "bike path"],
+            alone: ["library", "shopping", "bike path"]
+        }
+    },
+    evening: {
+        meal: {
+            romantic: ["dinner"],
+            friends: ["dinner"],
+            family: ["dinner"],
+            alone: ["dinner"]
+        },
+        dessert: {
+            romantic: ["dessert", "ice cream", "froyo"],
+            friends: ["dessert", "ice cream", "froyo"],
+            family: ["dessert", "ice cream", "froyo"],
+            alone: ["dessert", "ice cream", "froyo"]
+        },
+      activity: {
+        romantic: ["movies", "ballet", "opera", "comedy", "theater", "music", "musical"],
+        friends: ["movies", "ballet", "opera", "comedy", "theater", "music", "musical"],
+        family: ["movies", "ballet", "opera", "comedy", "theater", "music", "musical"],
+        alone: ["movies", "ballet", "opera", "comedy", "theater", "music", "musical"],
+      }
+    },
+    night: {
+      meal: {
+        romantic: ["diner"],
+        friends: ["diner"],
+        family: ["diner"],
+        alone: ["diner"],
+      },
+      activity: {
+        romantic: ["movie"],
+        friends: ["movies", "bar", "divebar", "club",],
+        family: ["movie"],
+        alone: ["bar", "divebas", "club"]
+      }
+    }
+  };
+
+  var queries = [];
+
+  if( trip.timeOfDay == "morning" ) {
+    queries.push(megaFun.morning.meal[trip.mood]);
+    queries.push(megaFun.morning.activity[trip.mood]);
+  } else if( trip.timeOfDay == "afternoon" ) {
+    queries.push(megaFun.afternoon.meal[trip.mood]);
+    queries.push(megaFun.afternoon.activity[trip.mood]);
+    queries.push(megaFun.afternoon.dessert[trip.mood]);
+    queries.push(megaFun.afternoon.activity[trip.mood]);
+  } else if( trip.timeOfDay == "evening" ) {
+    queries.push(megaFun.evening.meal[trip.mood]);
+    queries.push(megaFun.evening.activity[trip.mood]);
+    queries.push(megaFun.evening.dessert[trip.mood]);
+  } else if( trip.timeOfDay == "night" ) {
+    queries.push(megaFun.evening.dessert[trip.mood]);
+    queries.push(megaFun.night.activity[trip.mood]);
+    queries.push(megaFun.night.activity[trip.mood]);
+    queries.push(megaFun.night.meal[trip.mood]);
+  } else {
+    queries.push(megaFun.morning.meal[trip.mood]);
+    queries.push(megaFun.afternoon.activity[trip.mood]);
+    queries.push(megaFun.afternoon.meal[trip.mood]);
+    queries.push(megaFun.afternoon.activity[trip.mood]);
+    queries.push(megaFun.evening.meal[trip.mood]);
+    queries.push(megaFun.evening.activity[trip.mood]);
+    queries.push(megaFun.evening.dessert[trip.mood]);
+    queries.push(megaFun.night.activity[trip.mood]);
+  }
+
   
 
   Meteor.call("clearTrip", tripId, function( error, result ) {
-    addEvent(trip._id, "bars");
-    addEvent(trip._id, "bars");
+    _.each(queries, function(queryGroup) {
+      if( typeof queryGroup == 'string' ) {
+        addEvent(tripId, queryGroup);
+      } else if( queryGroup instanceof Array ) {
+        var index = Math.floor(Math.random() * queryGroup.length);
+        addEvent(tripId, queryGroup[index]);
+      }
+    });
   });
 
 };

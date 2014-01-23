@@ -1,10 +1,10 @@
 mapExists = false;
 Template.map.rendered = function() {
-  console.log("map template rendered");
+  // console.log("map template rendered");
 
   if(!mapExists) {
 
-    console.log("map instantiated");
+    // console.log("map instantiated");
 
     // Create map
     var map = L.map('map', { zoomControl:true });
@@ -97,7 +97,7 @@ Template.map.rendered = function() {
     // Populate neighborhoods layer
     $.getJSON('json/boston.json', function (data) {
       _.each(data.features, function(feature) {
-        console.log(feature.properties.label);
+        // console.log(feature.properties.label);
         neighborhoodsLayer.addData(feature);
       });
     });

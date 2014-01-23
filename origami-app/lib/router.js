@@ -1,7 +1,11 @@
 // Default Router configuration
 Router.configure({
   layoutTemplate: 'layout',
-  loadingTemplate: 'loading'
+  loadingTemplate: 'loading',
+  notFoundTemplate: 'notFound',
+  waitOn: function () {
+    return Meteor.subscribe('userTrips');
+  },
 });
 
 // Router filters
@@ -69,9 +73,6 @@ Router.map(function() {
     path: '/my-trips',
     template: 'myTrips',
     before: filters.requireAuthentication,
-    waitOn: function () {
-      return Meteor.subscribe('userTrips');
-    },
     data : function() {
       return {
         trips: Trips.find({})
