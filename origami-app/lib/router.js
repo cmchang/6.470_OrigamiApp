@@ -51,4 +51,18 @@ Router.map(function() {
     template: 'theFold',
     before: filters.requireAuthentication
   });
+
+  this.route('myTrips', {
+    path: '/my-trips',
+    template: 'myTrips',
+    before: filters.requireAuthentication,
+    waitOn: function () {
+      return Meteor.subscribe('userTrips');
+    },
+    data : function() {
+      return {
+        trips: Trips.find({})
+      }
+    }
+  });
 });
