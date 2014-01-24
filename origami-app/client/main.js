@@ -179,8 +179,9 @@ addEvent = function ( tripId, query ) {
         // latitude: "",
         // longitude: "",
       },
-      phoneNo: business.phoneNo,
-      // image: "http://s3-media1.ak.yelpcdn.com/bphoto/85_HoifJk7HpvkoiDTQI4g/ms.jpg",
+      url: business.url,
+      phoneNo: business.phone,
+      image: business.image_url,
       rating: {
         yelp: "4.5",
         user: "",

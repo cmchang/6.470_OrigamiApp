@@ -3,9 +3,9 @@
   <div class="the-fold">
     <h2>{{trip.name}}</h2>
 
-    {{#if eventss}}
+    {{#if tripEvents}}
       <ul>
-        {{#each eventss}}
+        {{#each tripEvents}}
           {{> eventDetail}}
         {{/each}}
       </ul>
@@ -19,5 +19,7 @@
 
 
 <template name="eventDetail">
-  <li>{{name}}</li>
+  <li>
+    <img src="{{image}}">&nbsp;{{name}}
+  </li>
 </template>

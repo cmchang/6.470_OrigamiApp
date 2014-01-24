@@ -83,6 +83,7 @@ Router.map(function() {
   this.route('tripDetail', {
     path: '/trip/:_id',
     template: 'tripDetail',
+    before: filters.requireAuthentication,
     waitOn: function() {
       return [
         Meteor.subscribe("tripDetail", this.params._id ),
@@ -92,7 +93,7 @@ Router.map(function() {
     data: function() {
       return {
         trip: Trips.findOne(this.params._id),
-        eventss: Events.find({tripId: this.params._id})
+        tripEvents: Events.find({tripId: this.params._id})
       };
     },
   });
