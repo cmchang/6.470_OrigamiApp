@@ -1,10 +1,8 @@
 mapExists = false;
 Template.map.rendered = function() {
-  // console.log("map template rendered");
+  console.log("map template rendered");
 
   if(!mapExists) {
-
-    // console.log("map instantiated");
 
     // Create map
     var map = L.map('map', { zoomControl:true });
@@ -17,12 +15,12 @@ Template.map.rendered = function() {
     var cloudmadeURL = 'http://{s}.tile.cloudmade.com/4f8a96ea698c4630b8abdc34097f92e6/119638/256/{z}/{x}/{y}.png';
 
     var baseLayer = new L.TileLayer(cloudmadeURL, {
-      buffer: 8
+      buffer: 4
     });
     map.addLayer(baseLayer);
 
     // Neighborhoods helpers
-    
+
       // Default style for neighborhood polygon
       var defaultStyle = {
         fillColor: "#FFF",
@@ -87,14 +85,13 @@ Template.map.rendered = function() {
     // Create neighborhoods layer
     var neighborhoodsLayer = L.geoJson(null, {
       style: style,
-      onEachFeature: onEachFeature
+      // onEachFeature: onEachFeature
     });
     neighborhoodsLayer.addTo(map);
 
     // Populate neighborhoods layer
-    $.getJSON('json/boston.json', function (data) {
+    $.getJSON('/json/boston.json', function (data) {
       _.each(data.features, function(feature) {
-        // console.log(feature.properties.label);
         neighborhoodsLayer.addData(feature);
       });
     });
