@@ -9,7 +9,7 @@ Template.map.rendered = function() {
     // Create map
     var map = L.map('map', { zoomControl:true });
     map.setView([42.3581, -71.0636], 14);
-    // var lc = L.control.locate().addTo(map);
+    var lc = L.control.locate().addTo(map);
     // map.on('dragstart', lc.stopFollowing);
 
 
@@ -21,11 +21,8 @@ Template.map.rendered = function() {
     });
     map.addLayer(baseLayer);
 
-    // Add a fake GeoJSON line to coerce Leaflet into creating the <svg> tag that d3_geoJson needs
-    new L.geoJson({"type": "LineString","coordinates":[[0,0],[0,0]]}).addTo(map);
-
     // Neighborhoods helpers
-
+    
       // Default style for neighborhood polygon
       var defaultStyle = {
         fillColor: "#FFF",

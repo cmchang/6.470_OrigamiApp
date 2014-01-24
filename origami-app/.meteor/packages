@@ -13,3 +13,6 @@ hammer
 accounts-password
 d3
 leaflet
+leaflet-control
+origami-errors
+leaflet-tilebuffer
