@@ -23,10 +23,10 @@
 <template name="sessionLinks">
 
   <li>
-    <a href="#">User</a>
+    <a href="#">{{userName}}</a>
     <ul>
       <li><a href="{{pathFor 'myTrips'}}">My Trips</a></li>
-      <li><a href="#">Settings</a></li>
+      <li><a href="{{pathFor 'myProfile'}}">Settings</a></li>
       <li><a href="{{pathFor 'logOut'}}">Log Out</a></li>
     </ul>
   </li>

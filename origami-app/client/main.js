@@ -129,7 +129,7 @@ rollTrip = function( tripId ) {
   } else if( trip.timeOfDay == "afternoon" ) {
     queries.push(megaFun.afternoon.meal[trip.mood]);
     queries.push(megaFun.afternoon.activity[trip.mood]);
-    queries.push(megaFun.afternoon.dessert[trip.mood]);
+    queries.push(megaFun.evening.dessert[trip.mood]);
     queries.push(megaFun.afternoon.activity[trip.mood]);
   } else if( trip.timeOfDay == "evening" ) {
     queries.push(megaFun.evening.meal[trip.mood]);

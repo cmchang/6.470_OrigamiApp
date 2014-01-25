@@ -1,0 +1,42 @@
+// main profile div
+.profile {
+  text-align: left !important;
+}
+.profile-left {
+  text-align: center;
+  margin-right: 15px;
+}
+.profile-image {
+  position: relative;
+  height: 150px;
+  width: 150px;
+  margin: 0 auto;
+  margin-bottom: 5px;
+  border: 1px solid rgba( 0, 0, 0, 0.1 );
+  border-radius: 5px;
+  overflow: hidden;
+  text-align: center;
+
+  img {
+    position:absolute;
+    left: -100%;
+    right: -100%;
+    top: -100%;
+    bottom: -100%;
+    margin: auto; 
+    width: 100%;
+    min-height: 100%;
+  }
+}
+
+.profile-name {
+  border: none;
+  border-bottom: 1px solid black;
+  font-size: 20pt;
+  width: auto;
+
+  &:disabled {
+    color: black;
+    border-bottom: none;
+  }
+}

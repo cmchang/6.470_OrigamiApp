@@ -1,0 +1,20 @@
+<template name="profile">
+
+  <div class="full-page">
+
+    {{> origamiErrors}}
+
+    <div class="profile modal clear">
+      <div class="profile-left pull-left">
+        <div class="profile-image">
+          <img src="{{profilePictureURL}}">
+        </div>
+        <a href="#" id="upload-image">Upload New Image</a>
+      </div>
+      <input class="profile-name" type="text" value="{{profileName}}" placeholder="Enter your name" disabled>
+      <a class="edit-name" href="#">(Edit)</a>
+    </div>
+
+  </div>
+
+</template>

@@ -69,6 +69,12 @@ Router.map(function() {
     ]
   });
 
+  this.route('myProfile', {
+    path: '/profile',
+    template: 'profile',
+    before: filters.requireAuthentication
+  });
+
   this.route('myTrips', {
     path: '/my-trips',
     template: 'myTrips',

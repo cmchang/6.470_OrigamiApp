@@ -48,6 +48,11 @@ body {
     float: left;
     margin-left: 15px;
   }
+  .clear:after {
+    content: ' ';
+    clear: both;
+    display: table;
+  }
   .centered {
     position: absolute;
     top: 50%;
@@ -59,9 +64,26 @@ body {
     right: 0px;
     bottom: 0px;
     left: 0px;
-    padding-top: 55px;
+    padding: 40px;
+    padding-top: 0;
     background: none;
     overflow-x: scroll;
+  }
+  .alert {
+    margin: 10px 0;
+    background: #FFF
+  }
+  .alert.alert-error {
+    background: rgba( 255, 100, 100, 0.8);
+  }
+  .modal {
+    margin: auto;
+    margin-top: 40px;
+    padding: 15px;
+    background: #FFF;
+    text-align: center;
+    border-radius: 3px;
+    box-shadow: $modal-box-shadow;
   }
   .left_arrow{
     font-size: 16px;
@@ -111,6 +133,7 @@ path.building { stroke: #f00; fill: #f00; }
   width: 100%;
   background: $header-bg;
   box-shadow: 0px 3px 13px gray;
+  font-size: 0; /* hack to prevent extra space around inline-block elements */
 }
   .logo-link {
     display: inline-block;
@@ -142,6 +165,7 @@ path.building { stroke: #f00; fill: #f00; }
         display: none;
         position: absolute;
         top: 100%;
+        width: 100%;
         background: #fff; 
         border-radius: 0px;
         padding: 0;
@@ -165,7 +189,7 @@ path.building { stroke: #f00; fill: #f00; }
           border-bottom: 1px solid #bec2c4;
 
           a {
-            padding-left: 20px;
+            // padding: 0 20px;
             // color: #fff;
 
             &:hover {
@@ -177,7 +201,7 @@ path.building { stroke: #f00; fill: #f00; }
 
       li {
         float: left;
-        width: 95px;
+        // width: 95px;
         line-height: $header-height;
 
         &:hover {
@@ -193,7 +217,7 @@ path.building { stroke: #f00; fill: #f00; }
         }
 
         a {
-          padding-left: 20px;
+          padding: 0 20px;
           display: block;
           font-size: 12pt;
           color: #757575;

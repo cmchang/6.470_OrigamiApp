@@ -3,9 +3,13 @@ OrigamiErrors = {
   collection: new Meteor.Collection(null),
 
   throw: function(message) {
-    Errors.collection.insert({message: message, seen: false});
+    OrigamiErrors.collection.insert({message: message, seen: false});
   },
   clearSeen: function() {
-    Errors.collection.remove({seen: true});
+    OrigamiErrors.collection.remove({seen: true});
+  },
+  hasErrors: function() {
+    return OrigamiErrors.collection.find().count() > 0;
   }
 };
+

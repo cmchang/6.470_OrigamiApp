@@ -3,6 +3,8 @@
     "iron-router": {},
     "scss": {},
     "leaflet": {},
-    "hammer": {}
+    "hammer": {},
+    "Dropzonejs": {},
+    "filepicker": {}
   }
 }
