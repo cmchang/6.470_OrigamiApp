@@ -68,6 +68,7 @@ body {
     padding-top: 0;
     background: none;
     overflow-x: scroll;
+    z-index: 5;
   }
   .alert {
     margin: 10px 0;
@@ -134,6 +135,7 @@ path.building { stroke: #f00; fill: #f00; }
   background: $header-bg;
   box-shadow: 0px 3px 13px gray;
   font-size: 0; /* hack to prevent extra space around inline-block elements */
+  z-index: 10;
 }
   .logo-link {
     display: inline-block;
@@ -231,18 +233,6 @@ path.building { stroke: #f00; fill: #f00; }
 .landing-hero {
   width: 400px;
   height: 140px;
-  margin: auto;
-  padding:15px;
-  background: #FFF;
-  text-align: center;
-  border-radius: 3px;
-  box-shadow: $modal-box-shadow;
-
-  // a {
-  //   padding: 5px 10px;
-  //   background: #0F0;
-  //   border-radius: 5px;
-  // }
   h1 {
     font-weight: 100;
   }
@@ -251,13 +241,9 @@ path.building { stroke: #f00; fill: #f00; }
 
 // Signup Styles
 .sign-up, .log-in {
-  margin:auto;
   width: 350px;
   padding-top: 1px;
   padding-bottom: 18px;
-  text-align: center;
-  background: $header-bg;
-  box-shadow: $modal-box-shadow;
 
   input {
     display: block;
@@ -292,12 +278,6 @@ path.building { stroke: #f00; fill: #f00; }
 .modal-hero {
   width: 415px;
   height: 140px;
-  margin: auto;
-  padding:15px;
-  background: #FFF;
-  text-align: center;
-  border-radius: 3px;
-  box-shadow: $modal-box-shadow;
 
   h1 {
     font-weight: 100;

@@ -31,13 +31,13 @@ Template.theFold.events({
 		e.preventDefault();
 		var currentTrip = Session.get("currentTrip");
 
-		var modalID = e.target.parentElement.parentElement.classList[1];
+		var modalID = e.target.parentElement.parentElement.id;
 		if (modalID === "modal0"){
-			changeModal($(".modal0"), $(".modal1"));
+			changeModal($("#modal0"), $("#modal1"));
 		}else if(modalID === "modal1"){
-			changeModal($(".modal1"), $(".modal2"));
+			changeModal($("#modal1"), $("#modal2"));
 		}else if(modalID === "modal2"){
-			changeModal($(".modal2"), $(".modal3"));
+			changeModal($("#modal2"), $("#modal3"));
 		}else if(modalID === "modal3"){
 			Meteor.call("insertTrip",
 				currentTrip.time,
@@ -96,26 +96,26 @@ Template.theFold.events({
 	},
 
 	'click .arrow_next' : function(e){
-		var modalID = e.target.parentElement.parentElement.classList[1];
+		var modalID = e.target.parentElement.parentElement.id;
 		if (modalID == "modal0"){
-			changeModal($(".modal0"), $(".modal1"));
+			changeModal($("#modal0"), $("#modal1"));
 		}else if (modalID == "modal1"){
-			changeModal($(".modal1"), $(".modal2"));
+			changeModal($("#modal1"), $("#modal2"));
 		}else if (modalID == "modal2"){
-			changeModal($(".modal2"), $(".modal3"));
+			changeModal($("#modal2"), $("#modal3"));
 		}else if (modalID == "modal3"){
-			changeModal($(".modal3"), $(".the-fold"));
+			changeModal($("#modal3"), $("#the-fold"));
 		}
 	},
 
 	'click .arrow_back' : function(e){
-		var modalID = e.target.parentElement.parentElement.classList[1];
+		var modalID = e.target.parentElement.parentElement.id;
 		if (modalID == "modal1"){
-			changeModal($(".modal1"), $(".modal0"));
+			changeModal($("#modal1"), $("#modal0"));
 		}else if (modalID == "modal2"){
-			changeModal($(".modal2"), $(".modal1"));
+			changeModal($("#modal2"), $("#modal1"));
 		}else if (modalID == "modal3"){
-			changeModal($(".modal3"), $(".modal2"));
+			changeModal($("#modal3"), $("#modal2"));
 		}
 	}
 

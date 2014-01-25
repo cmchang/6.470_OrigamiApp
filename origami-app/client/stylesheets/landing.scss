@@ -1,7 +1,6 @@
 .pfold-container {
     position: absolute;
-    top: 100px;
-    left: 100px;
+    z-index: 1;
 }
 
 
@@ -18,37 +17,6 @@
 .uc-back,
 .uc-front {
     background: #29a6aa url(../images/noise.png) repeat top left;
-}
-
-.icon-eye {
-    position: absolute;
-    top: 0;
-    left: 0;
-    text-indent: 4px;
-    font-size: 60px;
-    color: transparent;
-    color: rgba(255,255,255,0);
-    width: 100%;
-    height: 100%;
-    line-height: 145px;
-    text-align: center;
-    background: rgba(41,166,170,0);
-    cursor: pointer;
-    -webkit-backface-visibility: hidden;
-    -moz-backface-visibility: hidden;
-    -o-backface-visibility: hidden;
-    -ms-backface-visibility: hidden;
-    backface-visibility: hidden;
-    -webkit-transition: all 0.3s linear;
-    -moz-transition: all 0.3s linear;
-    -o-transition: all 0.3s linear;
-    -ms-transition: all 0.3s linear;
-    transition: all 0.3s linear;
-}
-
-.uc-initial-content:hover .icon-eye {
-    color: rgba(255,255,255,0.8);
-    background: rgba(41,166,170,0.7);
 }
 
 .uc-initial-content img {
