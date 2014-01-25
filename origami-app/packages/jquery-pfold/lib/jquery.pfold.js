@@ -13,8 +13,6 @@
 	
 	'use strict';
 
-	console.log("Loading Pfold", $);
-
 	/*
 	* debouncedresize: special jQuery event that happens once after a window resize
 	*
@@ -57,8 +55,8 @@
 	};
 
 	// global
-	var $window = $( window ),
-		Modernizr = window.Modernizr;
+	var $window = $( window );
+	var Modernizr = window.Modernizr;
 
 	$.PFold = function( options, element ) {
 		
@@ -831,7 +829,7 @@
 			
 			});
 		
-		} 
+		}
 		else {
 		
 			this.each(function() {
