@@ -5,6 +5,7 @@
     "leaflet": {},
     "hammer": {},
     "Dropzonejs": {},
-    "filepicker": {}
+    "filepicker": {},
+    "glyphicons-halflings": {}
   }
 }

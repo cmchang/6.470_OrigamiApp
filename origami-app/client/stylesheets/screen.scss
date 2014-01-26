@@ -309,7 +309,7 @@ path.building { stroke: #f00; fill: #f00; }
 // EventDetail
 .eventDetail{
   list-style-type: none;
-  .eventImg, .eventDetails{
+  .eventImg, .eventDetails, .eventIcons{
     // width: 100px; 
     display: inline-block;
     vertical-align: top;
@@ -324,12 +324,24 @@ path.building { stroke: #f00; fill: #f00; }
   }
   .eventDetails{
     // padding-left:-30px;
-    width: 180px;
+    width: 156px;
+    padding:0px;
     margin-left: -30px;
     .name{
       font-weight: 300;
-      font-size: 16px;
+      font-size: 14px;
       color: #00b6ff;
+      &:hover{
+        color: #006289;
+        text-decoration: underline;
+      }
+    }
+  }
+  .eIcon{
+    opacity: .3;
+    &:hover{
+      opacity: .8;
+      cursor: pointer;
     }
   }
 }
