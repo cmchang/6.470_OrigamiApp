@@ -166,31 +166,53 @@ rollTrip = function( tripId ) {
 
 };
 
+getLatLong = function( address, callback ) {
+  callback = callback || function() {};
+  // Basic input sanitization
+  var query = address.replace( " ", "+" ).replace("&", "");
+  // Google API lookup
+  $.ajax({
+    url: "//maps.googleapis.com/maps/api/geocode/json?address=" + query + "&sensor=false",
+    success: function( data ) {
+      if( data.results.length > 0 ) {
+        var loc = data.results[0].geometry.location;
+        callback( loc.lat, loc.lng );
+      }
+    }
+  });
+};
+
 addEvent = function ( tripId, query ) {
   yelpQuery(query, "Boston, MA", function(data) {
     var num = Math.floor(Math.random() * data.businesses.length);
     var business = data.businesses[num];
-    var newEvent = {
-      tripId: tripId,
-      name: business.name,
-      location: {
-        address: business.location.address[0],
-        // city: "Boston",
-        // latitude: "",
-        // longitude: "",
-      },
-      url: business.url,
-      phoneNo: business.phone,
-      image: business.image_url,
-      rating: {
-        yelp: "4.5",
-        user: "",
-      },
-      tripDetails: {
-        order: 1,
-        time: "6:00",
-      }
-    };
-    Events.insert(newEvent);
+    var locationQuery = business.location.address[0] + " " +
+                        business.location.city + " " +
+                        business.location.postal_code;
+    getLatLong( locationQuery, function( latitude, longitude ) {
+      var newEvent = {
+        tripId: tripId,
+        name: business.name,
+        location: {
+          address: business.location.address[0],
+          // city: "Boston",
+          latitude: latitude,
+          longitude: longitude,
+        },
+        url: business.url,
+        phoneNo: business.phone,
+        image: business.image_url,
+        rating: {
+          yelp: "4.5",
+          user: "",
+        },
+        tripDetails: {
+          order: 1,
+          time: "6:00",
+        }
+      };
+      console.log(newEvent);
+      Events.insert(newEvent);
+    });
   });
 };

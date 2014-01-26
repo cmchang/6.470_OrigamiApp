@@ -1,11 +1,10 @@
 mapExists = false;
 Template.map.rendered = function() {
-  console.log("map template rendered");
 
   if(!mapExists) {
 
     // Create map
-    var map = L.map('map', { zoomControl:true });
+    window.map = L.map('map', { zoomControl:true });
     map.setView([42.3581, -71.0636], 14);
     var lc = L.control.locate().addTo(map);
     // map.on('dragstart', lc.stopFollowing);

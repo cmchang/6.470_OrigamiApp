@@ -16,3 +16,17 @@ Template.tripDetail.events({
     addEvent(trip._id, "dessert");
   }
 });
+
+Template.tripDetail.rendered = function() {
+  var map = $("#map");
+  this.data.tripEvents.observeChanges({
+    added: function( id, fields ) {
+      var loc = [fields.location.latitude, fields.location.longitude];
+      L.marker(loc).addTo(window.map);
+    }
+  });
+};
+
+Template.tripDetail.destroyed = function() {
+  // clear all markers
+};
