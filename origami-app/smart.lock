@@ -7,7 +7,8 @@
       "leaflet": {},
       "hammer": {},
       "Dropzonejs": {},
-      "filepicker": {}
+      "filepicker": {},
+      "glyphicons-halflings": {}
     },
     "packages": {
       "iron-router": {
@@ -39,6 +40,11 @@
         "git": "https://github.com/Ink/meteor.git",
         "tag": "v0.4.0",
         "commit": "20d56aaaf48be3a5c0499547a495a6463b4fa3d9"
+      },
+      "glyphicons-halflings": {
+        "git": "https://github.com/chriswessels/meteor-glyphicons-halflings.git",
+        "tag": "v1.0.2",
+        "commit": "c943b42cddb92be8218322e7d638a98ef5d10366"
       }
     }
   }
