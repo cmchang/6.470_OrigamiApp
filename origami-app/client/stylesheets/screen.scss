@@ -269,6 +269,8 @@ path.building { stroke: #f00; fill: #f00; }
   background: $header-bg;
   box-shadow: $modal-box-shadow;
   font-size: 10pt;
+  overflow-y: scroll;
+  bottom: 40px;
   h2 {
     font-weight: 200;
   }
@@ -303,8 +305,27 @@ path.building { stroke: #f00; fill: #f00; }
 .eventDetail{
   list-style-type: none;
   .eventImg, .eventDetails{
-    width: 100px; 
+    // width: 100px; 
     display: inline-block;
+    vertical-align: top;
+    ul{
+      list-style-type: none;
+
+    }
+  }
+  .eventImg{
+    margin-left: -30px;
+    width: 100px;
+  }
+  .eventDetails{
+    // padding-left:-30px;
+    width: 180px;
+    margin-left: -30px;
+    .name{
+      font-weight: 300;
+      font-size: 16px;
+      color: #00b6ff;
+    }
   }
 }
 

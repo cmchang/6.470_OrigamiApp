@@ -180,11 +180,12 @@ addEvent = function ( tripId, query ) {
         // longitude: "",
       },
       url: business.url,
-      phoneNo: business.phone,
+      phoneNo: business.display_phone,
       image: business.image_url,
       rating: {
         yelp: "4.5",
         user: "",
+        img: business.rating_img_url_small
       },
       tripDetails: {
         order: 1,

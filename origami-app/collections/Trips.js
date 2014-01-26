@@ -28,7 +28,7 @@ Meteor.methods({
       timeOfDay: timeOfDay,
       mood: mood,
       energy: energy,
-      name: "A " + energy + " " + mood + " " + timeOfDay,
+      name: "A "+ mood + " " + timeOfDay +" for " + energy ,
       created: new Date().getTime()
     };
 

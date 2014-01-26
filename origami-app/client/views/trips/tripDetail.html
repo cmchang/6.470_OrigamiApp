@@ -18,18 +18,22 @@
 </template>
 
 
-<template name="eventDetail" class = "eventDetail">
-  <li>
-    <div>
-      <div class = "eventImg"><img src="{{image}}"></div>
-      <div style= "eventDetails">
-        <ul>
-          <li>{{name}}
-          <li>{{name}}
-          <li>{{name}}
-          <li>{{name}}
-        </ul>
+<template name="eventDetail">
+  <div class = "eventDetail">
+    <li>
+      <div>
+        <div class = "eventImg"><img src="{{image}}"></div>
+        <div class = "eventDetails">
+          <ul>
+            <li><a href = "{{url}}" class = "name">{{name}}</a>
+            <li><img src="{{rating.img}}">
+            <li>{{location.address}}
+            <li> {{phoneNo}}
+            
+
+          </ul>
+        </div>
       </div>
-    </div>
-  </li>
+    </li>
+  </div>
 </template>
