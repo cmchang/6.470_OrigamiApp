@@ -6,7 +6,11 @@ var betaDebug = {
   seedUsers: function() {
     return Accounts.createUser({
       email: "origami@mit.edu",
-      password: "muchwow"
+      password: "muchwow",
+      profile: {
+        name: null,
+        imageURL: null,
+      }
     });
   },
 
