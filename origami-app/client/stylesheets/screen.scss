@@ -299,5 +299,13 @@ path.building { stroke: #f00; fill: #f00; }
   }
 }
 
+// EventDetail
+.eventDetail{
+  list-style-type: none;
+  .eventImg, .eventDetails{
+    width: 100px; 
+    display: inline-block;
+  }
+}
 
 
