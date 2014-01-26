@@ -21,7 +21,7 @@ var foldProperties = [
 	}
 ];
 
-var pfoldTimeout;
+window.pfoldTimeout = -1;
 
 var pfoldGeneration = function() {
 
@@ -54,7 +54,7 @@ var pfoldGeneration = function() {
 		// Remove it once it's been folded back up.
 		onEndFolding: function() {
 			$pfoldObject.remove();
-			pfoldTimeout = Meteor.setTimeout(pfoldGeneration, _.random(4,10)*1000);
+			window.pfoldTimeout = Meteor.setTimeout(pfoldGeneration, _.random(4,10)*1000);
 			console.log("reset with to ", pfoldTimeout);
 		}
 	});
@@ -66,11 +66,11 @@ var pfoldGeneration = function() {
 
 Template.landing.rendered = function() {
 
-	pfoldTimeout = Meteor.setTimeout(pfoldGeneration, 2*1000);
+	window.pfoldTimeout = Meteor.setTimeout(pfoldGeneration, 2*1000);
 	
 };
 
 Template.landing.destroyed = function() {
 	console.log("unloading", pfoldTimeout);
-	Meteor.clearTimeout(pfoldTimeout);
+	Meteor.clearTimeout(window.pfoldTimeout);
 };

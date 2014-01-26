@@ -151,9 +151,8 @@ rollTrip = function( tripId ) {
     queries.push(megaFun.night.activity[trip.mood]);
   }
 
-  
-
   Meteor.call("clearTrip", tripId, function( error, result ) {
+    console.log(queries);
     _.each(queries, function(queryGroup) {
       if( typeof queryGroup == 'string' ) {
         addEvent(tripId, queryGroup);
@@ -184,18 +183,23 @@ getLatLong = function( address, callback ) {
 
 addEvent = function ( tripId, query ) {
   yelpQuery(query, "Boston, MA", function(data) {
-    var num = Math.floor(Math.random() * data.businesses.length);
-    var business = data.businesses[num];
+    var num, business;
+    do {
+      num = Math.floor(Math.random() * data.businesses.length);
+      business = data.businesses[num];
+    }
+    while (Events.find({tripId: tripId, yelpId: business.id}).count() > 0);
     var locationQuery = business.location.address[0] + " " +
                         business.location.city + " " +
                         business.location.postal_code;
     getLatLong( locationQuery, function( latitude, longitude ) {
       var newEvent = {
         tripId: tripId,
+        yelpId: business.id,
         name: business.name,
         location: {
           address: business.location.address[0],
-          // city: "Boston",
+          city: business.location.city,
           latitude: latitude,
           longitude: longitude,
         },
@@ -205,7 +209,7 @@ addEvent = function ( tripId, query ) {
         rating: {
           yelp: "4.5",
           user: "",
-          img: business.rating_img_url_small
+          img: business.rating_img_url_small || "http://www.defaultimage.com/image.jpg" // TODO
         },
         tripDetails: {
           order: 1,
