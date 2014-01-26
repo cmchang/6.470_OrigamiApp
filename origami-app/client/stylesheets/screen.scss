@@ -103,6 +103,10 @@ body {
   .date_container{
     padding:2px;
     border: solid 1px #c6c6c6;
+    .weekday{
+      width:181px;
+
+    }
 
     &:hover{
       background: #c6c6c6;

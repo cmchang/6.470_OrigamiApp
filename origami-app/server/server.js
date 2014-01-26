@@ -8,3 +8,17 @@ Meteor.methods({
       return;
   }
 });
+
+
+Accounts.onCreateUser(function(options, user) {
+  // We still want the default hook's 'profile' behavior.
+  if (options.profile) {
+    user.profile = options.profile;
+  } else {
+    user.profile = {
+      name: null,
+      imageURL: null
+    };
+  }
+  return user;
+});
