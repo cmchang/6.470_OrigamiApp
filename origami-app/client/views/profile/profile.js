@@ -11,7 +11,7 @@ Template.profile.events({
         Meteor.users.update({_id:Meteor.user()._id}, {$set:{"profile.imageURL": url}});
       },
       function(FPError){
-        OrigamiErrors.throw(FPError.toString());
+        console.log(FPError.toString());
       }
     );
   },
