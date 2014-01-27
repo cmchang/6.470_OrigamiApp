@@ -6,6 +6,7 @@
     "hammer": {},
     "Dropzonejs": {},
     "filepicker": {},
-    "glyphicons-halflings": {}
+    "glyphicons-halflings": {},
+    "jquery-ui": {}
   }
 }

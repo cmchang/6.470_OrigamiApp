@@ -69,6 +69,33 @@ Template.profile.events({
     }
     Session.set("editneighborhood", !editable);
   }
+
+  // 'click .edit-neighborhood' : function() {
+  //   var editable = Session.get("edithome"); //change
+  //   var $name = $(".profile-home");
+  //   var newName = $name.val();
+  //   var $edit = $(".edit-home");
+  //   if( editable ) {
+  //     // Process new name
+  //     $name.prop("disabled", true);
+  //     if( newName !== "") {
+  //       // Save new name
+  //       Meteor.users.update({_id:Meteor.user()._id}, {$set:{"profile.name":$name.val()}});
+  //     } else {
+  //       // New name was empty, reset to default text
+  //       $name.val("No Name Set");
+  //     }
+  //   } else {
+  //     // Edit new name
+  //     $edit.text("Save");
+  //     $name.prop('disabled', false);
+  //     if ( newName === "No Name Set" ) {
+  //       $name.val("");
+  //     }
+  //     $name.focus();
+  //   }
+  //   Session.set("edithome", !editable);
+  // }
 });
 
 Template.profile.helpers({

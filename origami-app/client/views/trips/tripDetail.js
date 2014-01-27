@@ -14,7 +14,33 @@ Template.tripDetail.events({
 
     addEvent(trip._id, "dessert");
   }
+
 });
+
+Template.eventDetail.events({
+  'mouseover .eventDetail': function(e, template){
+    var DOMelm = e.target.parentNode;
+    while(DOMelm.className != "eventDetail"){
+      DOMelm = DOMelm.parentNode;
+    }
+    $(DOMelm.childNodes[1].childNodes[1].childNodes[5]).css('display', 'inline-block');
+  },
+    'mouseout .eventDetail': function(e, template){
+    // console.log(e.target);
+    var DOMelm = e.target.parentNode;
+    while(DOMelm.className != "eventDetail"){
+      DOMelm = DOMelm.parentNode;
+    }
+    $(DOMelm.childNodes[1].childNodes[1].childNodes[5]).css('display', 'none');
+  },
+  'click .glyphicon-remove': function(e, template){
+    var evtDet= $(e.target.parentNode.parentNode.parentNode.parentNode);
+    evtDet.toggle("slide", 500, function(){evtDet.remove(); });
+  }
+
+});
+
+///// Pfold /////
 
 Template.tripDetail.rendered = function() {
   var markers = {};

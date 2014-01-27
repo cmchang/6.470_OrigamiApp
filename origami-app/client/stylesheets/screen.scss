@@ -281,6 +281,10 @@ path.building { stroke: #f00; fill: #f00; }
   }
 }
 
+.neighborhSel{
+  border: 1px solid grey;
+  height: 27px;
+}
 
 // Modal-hero
 .modal-hero {
@@ -309,6 +313,7 @@ path.building { stroke: #f00; fill: #f00; }
 // EventDetail
 .eventDetail{
   list-style-type: none;
+  margin-left: -30px;
   .eventImg, .eventDetails, .eventIcons{
     // width: 100px; 
     display: inline-block;
@@ -319,7 +324,6 @@ path.building { stroke: #f00; fill: #f00; }
     }
   }
   .eventImg{
-    margin-left: -30px;
     width: 100px;
   }
   .eventDetails{
@@ -337,11 +341,14 @@ path.building { stroke: #f00; fill: #f00; }
       }
     }
   }
-  .eIcon{
-    opacity: .3;
-    &:hover{
-      opacity: .8;
-      cursor: pointer;
+  .eventIcons{
+    display:none;
+    .eIcon{
+      opacity: .3;
+      &:hover{
+        opacity: .8;
+        cursor: pointer;
+      }
     }
   }
 }
