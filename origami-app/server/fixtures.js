@@ -80,7 +80,7 @@ var betaDebug = {
 Meteor.startup( function() {
   // Debugging functions. Should be switched off most of the time
 
-  betaDebug.clearUsers();
+  // betaDebug.clearUsers();
   // var betaUserId = betaDebug.seedUsers();
   // betaDebug.clearTrips();
   // betaDebug.seedTrip( betaUserId );

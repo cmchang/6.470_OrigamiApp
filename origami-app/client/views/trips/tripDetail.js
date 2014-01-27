@@ -15,8 +15,27 @@ Template.tripDetail.events({
 
     addEvent(trip._id, "dessert");
   }
+
 });
 
+
+Template.eventDetail.events({
+  'mouseover .eventDetail': function(e, template){
+    var DOMelm = e.target.parentNode;
+    while(DOMelm.className != "eventDetail"){
+      DOMelm = DOMelm.parentNode;
+    }
+    $(DOMelm.childNodes[1].childNodes[1].childNodes[5]).css('display', 'inline-block');
+  },
+    'mouseout .eventDetail': function(e, template){
+    // console.log(e.target);
+    var DOMelm = e.target.parentNode;
+    while(DOMelm.className != "eventDetail"){
+      DOMelm = DOMelm.parentNode;
+    }
+    $(DOMelm.childNodes[1].childNodes[1].childNodes[5]).css('display', 'none');  }
+
+});
 
 ///// Pfold /////
 
