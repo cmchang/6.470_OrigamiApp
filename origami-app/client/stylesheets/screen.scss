@@ -353,4 +353,41 @@ path.building { stroke: #f00; fill: #f00; }
   }
 }
 
+//gamify
+.leaderboard{
+  position: relative;
+  display:inline-block;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 15px;
+  margin-right: 40px;
+  margin-left: 55px;
+  top: 40px;
+  width: 250px;
+  height: 90%;
+  background: $header-bg;
+  box-shadow: $modal-box-shadow;
+  font-size: 10pt;
+  overflow-y: scroll;
+  h2 {
+    font-weight: 200;
+  }
+}
 
+.stats{
+  position: relative;
+  display: inline-block;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 15px;
+  top: 40px;
+  width: 600px;
+  height: 90%;
+  background: $header-bg;
+  box-shadow: $modal-box-shadow;
+  font-size: 10pt;
+  overflow-y: scroll;
+  h2 {
+    font-weight: 200;
+  }
+}

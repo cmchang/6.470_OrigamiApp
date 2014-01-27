@@ -103,4 +103,16 @@ Router.map(function() {
       };
     },
   });
+
+  this.route('gamify', {
+    path: '/gamify',
+    template: 'gamify',
+    before: filters.requireAuthentication,
+    data : function() {
+      return {
+        trips: Trips.find({})
+      };
+    }
+  });
+
 });
