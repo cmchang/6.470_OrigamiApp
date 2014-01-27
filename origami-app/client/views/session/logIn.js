@@ -6,7 +6,9 @@ Template.logIn.events({
     var password = $(e.target).find('#user-password').val();
 
     Meteor.loginWithPassword( email, password, function( Error ) {
-      console.log(Error ? Error : "FOOOOOOOOOL");
+      if( Error ) {
+        OrigamiErrors.throw(Error);
+      }
     });
   }
 });

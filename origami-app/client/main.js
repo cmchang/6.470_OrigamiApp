@@ -1,4 +1,5 @@
 yelpQuery = function( terms, location, callback ) {
+  callback = callback || function() {};
   var auth = {
     consumerKey: "gbGLJH2Q4TcZY44906xnJg",
     consumerSecret: "0DjD5ERK_Lcmqo8SsKSHP_XAPLs",
@@ -9,7 +10,8 @@ yelpQuery = function( terms, location, callback ) {
     }
   };
 
-  var near = !!location ? location : "Boston, MA";
+  var near = location || "Boston, MA";
+  console.log(near);
 
   var accessor = {
     consumerSecret: auth.consumerSecret,
@@ -19,6 +21,8 @@ yelpQuery = function( terms, location, callback ) {
   parameters = [];
   parameters.push(['term', terms]);
   parameters.push(['location', near]);
+  parameters.push(['sort', 1]);
+  parameters.push(['radius_filter', 4000]);
   parameters.push(['callback', 'cb']);
   parameters.push(['oauth_consumer_key', auth.consumerKey]);
   parameters.push(['oauth_consumer_secret', auth.consumerSecret]);
@@ -44,11 +48,7 @@ yelpQuery = function( terms, location, callback ) {
     'dataType': 'jsonp',
     // 'jsonpCallback': 'cb',
     'success': function(data, textStats, XMLHttpRequest) {
-      if(!!callback) {
-        callback(data);
-      } else {
-        console.log("No Callback", data);
-      }
+      callback(data);
     }
   });
 };
@@ -182,13 +182,22 @@ getLatLong = function( address, callback ) {
 };
 
 addEvent = function ( tripId, query ) {
-  yelpQuery(query, "Back Bay", function(data) {
-    var num, business;
-    do {
-      num = Math.floor(Math.random() * data.businesses.length);
-      business = data.businesses[num];
+  yelpQuery(query, "Back Bay, Boston", function(data) {
+    var num,
+        business;
+        // i = 0;
+    for( var i = 0; i < data.businesses.length; i++ ) {
+      business = data.businesses[i];
+      if ( Events.find({tripId: tripId, yelpId: business.id} ).count() === 0 ) {
+        break;
+      }
     }
-    while (Events.find({tripId: tripId, yelpId: business.id}).count() > 0);
+    // do {
+      // num = Math.floor(Math.random() * data.businesses.length);
+      // business = data.businesses[i];
+      // i++;
+    // }
+    // while (Events.find({tripId: tripId, yelpId: business.id}).count() > 0);
     var locationQuery = business.location.address[0] + " " +
                         business.location.city + " " +
                         business.location.postal_code;

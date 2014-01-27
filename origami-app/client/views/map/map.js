@@ -20,7 +20,7 @@ Template.map.rendered = function() {
     });
     map.addLayer(baseLayer);
 
-    markersLayer = new L.LayerGroup().addTo(map);
+    window.markersLayer = new L.LayerGroup().addTo(map);
 
     // Neighborhoods helpers
 
@@ -100,8 +100,9 @@ Template.map.rendered = function() {
         // console.log(feature.properties.label);
         // $.inArray(feature.properties.label, neighborhoods);
         if ($.inArray(feature.properties.label, neighborhoods) > -1){
+          // window.neighborhoods.push(feature.properties.label);
           neighborhoodsLayer.addData(feature);
-        }        
+        }
       });
     });
 
