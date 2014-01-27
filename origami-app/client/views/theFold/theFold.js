@@ -39,6 +39,8 @@ Template.theFold.events({
 		}else if(modalID === "modal2"){
 			changeModal($("#modal2"), $("#modal3"));
 		}else if(modalID === "modal3"){
+			changeModal($("#modal3"), $("#modal4"));
+		}else if(modalID === "modal4"){
 			Meteor.call("insertTrip",
 				currentTrip.time,
 				currentTrip.type,
@@ -121,6 +123,19 @@ Template.theFold.events({
 
 });
 
+var neighboorhSelect = function(){
+	console.log(window.neighborhoods);
+	for(var x = 0; x < window.neighborhoods.length; x++){
+		console.log("here");
+		if (window.neighborhoods[x] == "Back Bay"){
+			$(".neighborhSel").append('<option value="' + String(x) + 'disabled="disabled" selected="selected">' + String(window.neighborhoods[x])+ '</option>');
+		}else{
+			console.log('<option value="' + String(x) + '">' + String(window.neighborhoods[x])+ '</option>');
+			$(".neighborhSel").append('<option value="' + String(x) + '">' + String(window.neighborhoods[x])+ '</option>');
+		}
+	}
+};
+
 
 Template.theFold.rendered = function(){
 	var weekday = new Date().getDay();
@@ -128,4 +143,7 @@ Template.theFold.rendered = function(){
 	var day = String(weekdays[weekday]);
 	$(".weekday").text(day);
 	$(".date_container").addClass(String([weekday]));
+
+	neighboorhSelect();
+
 };

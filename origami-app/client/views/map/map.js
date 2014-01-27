@@ -1,5 +1,5 @@
 mapExists = false;
-neighborhoods = ["Kenmore", "Symphony", "Back Bay"];
+neighborhoods = ["Back Bay","Kenmore", "Symphony"];
 
 Template.map.rendered = function() {
 
@@ -99,10 +99,13 @@ Template.map.rendered = function() {
         // console.log(feature.properties.label);
         // console.log(feature.properties.label);
         // $.inArray(feature.properties.label, neighborhoods);
+        // window.neighborhoods.push(String(feature.properties.label));
         if ($.inArray(feature.properties.label, neighborhoods) > -1){
           neighborhoodsLayer.addData(feature);
         }        
       });
+
+
     });
 
 
