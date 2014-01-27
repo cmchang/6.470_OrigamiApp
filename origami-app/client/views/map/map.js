@@ -96,7 +96,7 @@ Template.map.rendered = function() {
     $.getJSON('/json/boston.json', function (data) {
       _.each(data.features, function(feature) {
         // console.log(neighborhoods);
-        console.log(feature.properties);
+        // console.log(feature.properties);
         // $.inArray(feature.properties.label, neighborhoods);
         // window.neighborhoods.push(String(feature.properties.label));
         if ($.inArray(feature.properties.label, neighborhoods) > -1){

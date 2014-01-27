@@ -106,7 +106,9 @@ Template.theFold.events({
 		}else if (modalID == "modal2"){
 			changeModal($("#modal2"), $("#modal3"));
 		}else if (modalID == "modal3"){
-			changeModal($("#modal3"), $("#the-fold"));
+			changeModal($("#modal3"), $("#modal4"));
+		}else if (modalID == "modal4"){
+			changeModal($("#modal4"), $("#the-fold"));
 		}
 	},
 
@@ -118,13 +120,15 @@ Template.theFold.events({
 			changeModal($("#modal2"), $("#modal1"));
 		}else if (modalID == "modal3"){
 			changeModal($("#modal3"), $("#modal2"));
+		}else if (modalID == "modal4"){
+			changeModal($("#modal4"), $("#modal3"));
 		}
 	}
 
 });
 
 var neighboorhSelect = function(){
-	console.log(window.neighborhoods);
+	// console.log(window.neighborhoods);
 	for(var x = 0; x < window.neighborhoods.length; x++){
 		if (window.neighborhoods[x] == "Back Bay"){
 			$(".neighborhSel").append('<option value="' + String(x) + 'disabled="disabled" selected="selected">' + String(window.neighborhoods[x])+ '</option>');
@@ -145,3 +149,10 @@ Template.theFold.rendered = function(){
 	neighboorhSelect();
 
 };
+
+
+
+
+//////////PFold
+
+
