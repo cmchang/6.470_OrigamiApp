@@ -20,6 +20,8 @@ Template.map.rendered = function() {
     });
     map.addLayer(baseLayer);
 
+    markersLayer = new L.LayerGroup().addTo(map);
+
     // Neighborhoods helpers
 
       // Default style for neighborhood polygon

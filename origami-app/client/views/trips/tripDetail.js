@@ -21,11 +21,17 @@ Template.tripDetail.events({
 ///// Pfold /////
 
 Template.tripDetail.rendered = function() {
-  var map = $("#map");
+  var markers = {};
   this.data.tripEvents.observeChanges({
-    added: function( id, fields ) {
+    added: function( _id, fields ) {
+      console.log("Added", fields);
       var loc = [fields.location.latitude, fields.location.longitude];
-      L.marker(loc).addTo(window.map);
+      markers[_id] = L.marker(loc, {
+        _id: _id
+      }).addTo(markersLayer);
+    },
+    removed: function( _id ) {
+      window.markers.removeLayer(markers[_id]);
     }
   });
 };
@@ -109,4 +115,8 @@ Template.landing.rendered = function() {
 Template.landing.destroyed = function() {
   console.log("unloading", pfoldTimeout);
   Meteor.clearTimeout(pfoldTimeout);
+
+  window.markers.clearLayers();
+
 };
+
