@@ -33,7 +33,13 @@ Template.eventDetail.events({
     while(DOMelm.className != "eventDetail"){
       DOMelm = DOMelm.parentNode;
     }
-    $(DOMelm.childNodes[1].childNodes[1].childNodes[5]).css('display', 'none');  }
+    $(DOMelm.childNodes[1].childNodes[1].childNodes[5]).css('display', 'none');  
+  },
+  'click .eventDetail': function(e, template){
+    var evtDet= $(e.target.parentNode.parentNode.parentNode.parentNode);
+    evtDet.toggle("slide", 500, function(){evtDet.remove()}) 
+
+  }
 
 });
 

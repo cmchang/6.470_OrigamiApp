@@ -153,6 +153,3 @@ Template.theFold.rendered = function(){
 
 
 
-//////////PFold
-
-
