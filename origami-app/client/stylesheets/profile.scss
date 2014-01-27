@@ -29,14 +29,24 @@
   }
 }
 
-.profile-name {
-  border: none;
-  border-bottom: 1px solid black;
-  font-size: 20pt;
-  width: auto;
+.profile{
 
-  &:disabled {
-    color: black;
-    border-bottom: none;
+  .profElem{
+    border: none;
+    border-bottom: 1px solid black;
+    &:disabled {
+      color: black;
+      border-bottom: none;
+    }
+  }
+  .profile-name{
+    width: auto;
+    font-size: 20pt;
+  }
+  .profile-neighborhood{
+    width: 200px;
+    font-size: 12pt;
+
   }
 }
+

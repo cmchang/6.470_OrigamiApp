@@ -1,4 +1,6 @@
 mapExists = false;
+neighborhoods = ["Kenmore", "Symphony", "Back Bay"];
+
 Template.map.rendered = function() {
 
   if(!mapExists) {
@@ -91,7 +93,13 @@ Template.map.rendered = function() {
     // Populate neighborhoods layer
     $.getJSON('/json/boston.json', function (data) {
       _.each(data.features, function(feature) {
-        neighborhoodsLayer.addData(feature);
+        // console.log(neighborhoods);
+        // console.log(feature.properties.label);
+        // console.log(feature.properties.label);
+        // $.inArray(feature.properties.label, neighborhoods);
+        if ($.inArray(feature.properties.label, neighborhoods) > -1){
+          neighborhoodsLayer.addData(feature);
+        }        
       });
     });
 
