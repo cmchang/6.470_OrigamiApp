@@ -1,5 +1,5 @@
 mapExists = false;
-neighborhoods = ["Back Bay","Kenmore", "Symphony"];
+neighborhoods = ["Allston", "Beacon Hill ", "Back Bay", "Brighton", "Chinatown", "Downtown", "Downtown Crossing", "Fenway", "Financial District" , "Harvard Square", "Jamaica Plain", "Kenmore", "Mission Hill", "North End", "Symphony", "West End"];
 
 Template.map.rendered = function() {
 
@@ -96,8 +96,7 @@ Template.map.rendered = function() {
     $.getJSON('/json/boston.json', function (data) {
       _.each(data.features, function(feature) {
         // console.log(neighborhoods);
-        // console.log(feature.properties.label);
-        // console.log(feature.properties.label);
+        console.log(feature.properties);
         // $.inArray(feature.properties.label, neighborhoods);
         // window.neighborhoods.push(String(feature.properties.label));
         if ($.inArray(feature.properties.label, neighborhoods) > -1){

@@ -44,10 +44,10 @@ Template.profile.events({
   }
 
   // 'click .edit-neighborhood' : function() {
-  //   var editable = Session.get("editneighborhood"); //change
-  //   var $name = $(".profile-neighborhood");
+  //   var editable = Session.get("edithome"); //change
+  //   var $name = $(".profile-home");
   //   var newName = $name.val();
-  //   var $edit = $(".edit-neighborhood");
+  //   var $edit = $(".edit-home");
   //   if( editable ) {
   //     // Process new name
   //     $name.prop("disabled", true);
@@ -67,7 +67,7 @@ Template.profile.events({
   //     }
   //     $name.focus();
   //   }
-  //   Session.set("editneighborhood", !editable);
+  //   Session.set("edithome", !editable);
   // }
 });
 

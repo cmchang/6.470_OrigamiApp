@@ -126,11 +126,9 @@ Template.theFold.events({
 var neighboorhSelect = function(){
 	console.log(window.neighborhoods);
 	for(var x = 0; x < window.neighborhoods.length; x++){
-		console.log("here");
 		if (window.neighborhoods[x] == "Back Bay"){
 			$(".neighborhSel").append('<option value="' + String(x) + 'disabled="disabled" selected="selected">' + String(window.neighborhoods[x])+ '</option>');
 		}else{
-			console.log('<option value="' + String(x) + '">' + String(window.neighborhoods[x])+ '</option>');
 			$(".neighborhSel").append('<option value="' + String(x) + '">' + String(window.neighborhoods[x])+ '</option>');
 		}
 	}
