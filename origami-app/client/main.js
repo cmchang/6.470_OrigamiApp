@@ -182,7 +182,7 @@ getLatLong = function( address, callback ) {
 };
 
 addEvent = function ( tripId, query ) {
-  yelpQuery(query, "Boston, MA", function(data) {
+  yelpQuery(query, "Back Bay", function(data) {
     var num, business;
     do {
       num = Math.floor(Math.random() * data.businesses.length);
