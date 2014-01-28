@@ -67,10 +67,12 @@
 // Template.landing.rendered = function() {
 
 // 	window.pfoldTimeout = Meteor.setTimeout(pfoldGeneration, 2*1000);
+
 	
 // };
 
-// Template.landing.destroyed = function() {
-// 	console.log("unloading", pfoldTimeout);
-// 	Meteor.clearTimeout(window.pfoldTimeout);
-// };
+
+Template.landing.destroyed = function() {
+	// console.log("unloading", pfoldTimeout);
+	// Meteor.clearTimeout(window.pfoldTimeout);
+};

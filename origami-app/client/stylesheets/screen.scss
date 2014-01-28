@@ -358,6 +358,11 @@ body {
 .eventDetail{
   list-style-type: none;
   margin-left: -30px;
+
+  &.hovered {
+    background: rgba(255, 100, 100, 0.5);
+  }
+  
   .eventImg, .eventDetails, .eventIcons{
     // width: 100px; 
     display: inline-block;
