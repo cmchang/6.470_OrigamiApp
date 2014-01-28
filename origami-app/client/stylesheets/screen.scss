@@ -151,11 +151,14 @@ path.building { stroke: #f00; fill: #f00; }
     font-weight: 100;
     margin: 0 20px;
   }
-  .today{
+  .slogan, .today{
     display: inline-block;
     position: absolute;
-    padding-left: 50px;
-    line-height: $header-height;
+    line-height: 51px;
+    font-size: 13px;
+    font-weight: 200;
+    margin-left: -21px;
+    font-style: italic;
   }
   .user-links {
 

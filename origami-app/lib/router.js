@@ -121,6 +121,10 @@ Router.map(function() {
           {name: "Explorer", image: "/images/badges/image7.png"},
           {name: "Super Trooper", image: "/images/badges/image8.png"},
           {name: "Gregariuos Groupie", image: "/images/badges/image9.png"},
+          {name: "Polarbear Club", image: "/images/badges/image.png"},
+          {name: "Tree Hugger", image: "/images/badges/image1.png"},
+          {name: "Burger Bum", image: "/images/badges/image2.png"}
+
         ],
         badges: Meteor.user().badges,
         trips: Trips.find({})
