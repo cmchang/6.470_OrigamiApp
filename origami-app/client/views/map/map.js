@@ -1,5 +1,5 @@
 mapExists = false;
-neighborhoods = ["Allston", "Beacon Hill ", "Back Bay", "Brighton", "Chinatown", "Downtown", "Downtown Crossing", "Fenway", "Financial District" , "Harvard Square", "Jamaica Plain", "Kenmore", "Mission Hill", "North End", "Symphony", "West End"];
+neighborhoods = ["Allston", "Beacon Hill", "Back Bay", "Brighton", "Chinatown", "Downtown", "Downtown Crossing", "Fenway", "Financial District" , "Harvard Square", "Jamaica Plain", "Kenmore", "Mission Hill", "North End", "Symphony", "West End"];
 
 Template.map.rendered = function() {
 
