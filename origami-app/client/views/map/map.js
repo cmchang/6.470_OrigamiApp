@@ -8,7 +8,13 @@ Template.map.created = function() {
         _id: _id,
         opacity: 0.5
       }).on('mouseover', function(e){
+        // scroll to list marker
+        $('.the-fold').animate({
+            scrollTop: $("#li-"+_id).offset().top + 100
+        }, 1000);
+        // highlight list element
         $("#li-"+_id).addClass("hovered");
+        // fill in map marker
         e.target.setOpacity(1.0);
       }).on('mouseout', function(e){
         $("#li-"+_id).removeClass("hovered");
