@@ -266,7 +266,25 @@ path.building { stroke: #f00; fill: #f00; }
 
 
 // The Fold Styles
-.the-fold, .my_trips {
+.the-fold{
+  position: absolute;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 15px;
+  top: -28px;
+  right: 10px;
+  width: 350px;
+  background: $header-bg;
+  box-shadow: $modal-box-shadow;
+  font-size: 10pt;
+  overflow-y: scroll;
+  bottom: 40px;
+  h2 {
+    font-weight: 200;
+  }
+}
+
+.my_trips {
   position: absolute;
   padding-left: 15px;
   padding-right: 15px;
