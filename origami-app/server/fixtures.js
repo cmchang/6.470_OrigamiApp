@@ -82,27 +82,73 @@ var betaDebug = {
   seedAllBadges: function() {
     var pubOne = Badges.insert({
       name: "Hopeless Romantic",
-      image: "/images/badges/image.png"
+      image: "/images/badges/image.png",
+      description: "To unlock this badge, go on 15 romantic dates <3"
+
     });
     var pubTwo = Badges.insert({
       name: "Sushi Inamoratum",
-      image: "/images/badges/image1.png"
+      image: "/images/badges/image1.png",
+      description: "To unlock this badge, almost get mercury poisoning! Visit 25 japanese restaurants (including Douzo)"
     });
 
     Badges.insert({
       name: "Gorilla",
-      image: "/images/badges/image2.png"
+      image: "/images/badges/image2.png",
+      description: "Mystery Badge!"
     });
 
     Badges.insert({
       name: "Tree Hugger",
-      image: "/images/badges/image3.png"
+      image: "/images/badges/image3.png",
+      description: "To unlock this badge, visit 3 parks"
+
     });
     
-    // Badges.insert({
-      // name: "Hopeless Romantic",
-      // image: "/images/badges/image.png"
-    // }),
+    Badges.insert({
+      name: "Lone Wolf",
+      image: "/images/badges/image4.png",
+      description: "To unlock this badge, go on 10 trips by yourself"
+    });
+
+    Badges.insert({
+      name: "Family Wo(Man)",
+      image: "/images/badges/image5.png",
+      description: "To unlock this badge, go on 10 trips with your family"
+    });
+
+    Badges.insert({
+      name: "Mall Rat",
+      image: "/images/badges/image6.png",
+      description: "To unlock this badge, visit 7 malls"
+    });
+
+    Badges.insert({
+      name: "Explorer",
+      image: "/images/badges/image7.png",
+      description: "To unlock this badge, visit 10 neighborhoods"
+    });
+
+    Badges.insert({
+      name: "Super Trooper",
+      image: "/images/badges/image8.png",
+      description: "To unlock this badge, withstand rainy days during 5 of your trips"
+    });
+    Badges.insert({
+      name: "Gregariuos Groupie",
+      image: "/images/badges/image9.png",
+      description: "To unlock this badge, go on 10 trips with your friends"
+    });
+    Badges.insert({
+      name: "Polarbear Club",
+      image: "/images/badges/image.png",
+      description: "To unlock this badge, go on 5 trips when the temperature is below 10 degrees"
+    });
+    Badges.insert({
+      name: "Burger Bum",
+      image: "/images/badges/image1.png",
+      description: "To unlock this badge, go to 20 burger joints"
+    });
           // {name: "Sushi Inamoratum", image: "/images/badges/image2.png"},
           // {name: "Gorilla", image: "/images/badges/image3.png"},
           // {name: "Lone Wolf", image: "/images/badges/image4.png"},
@@ -129,7 +175,7 @@ Meteor.startup( function() {
   // betaDebug.clearUsers();
   // var betaUserId = betaDebug.seedUsers();
   // betaDebug.clearTrips();
-  // betaDebug.seedTrip( betaUserId );
+  // // betaDebug.seedTrip( betaUserId );
   // betaDebug.clearBadges();
   // var publicBadges = betaDebug.seedAllBadges();
   // betaDebug.seedUserBadges(betaUserId, publicBadges);

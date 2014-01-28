@@ -7,13 +7,19 @@
 		<div class = "badges">
 			<h2>My Badges</h2>
 			{{#if areBadges}}
-				unclaimed
+				
 				{{#each unclaimedBadges}}
-					{{> genericBadge}}
+					<div class = "badgeContainer">
+						<div class = "badge unclaimedBadge" style="background:url('{{image}}')">{{name}}</div>
+						<div class= "badgeDescription" style="display:none;">{{description}}</div>
+					</div>
 				{{/each}}
-				claimed
+				
 				{{#each claimedBadges}}
-					{{> genericBadge}}
+				<div class = "badgeContainer">
+					<div class = "badge claimedBadge" style="background:url('{{image}}')">{{name}}</div>
+					<div class = "badgeDescription" style="display:none;">{{description}}</div>
+				</div>
 				{{/each}}
 			{{else}}
 				<p>No Bades here :(</p>
@@ -27,7 +33,7 @@
 </div>
 </template>
 
-<template name="genericBadge">
-	<!-- {{name}} <img src="{{image}}"> -->
+<!-- <template name="genericBadge">
+	{{name}} <img src="{{image}}">
 	<div class = "badge" style="background:url('{{image}}')">{{name}}</div>
-</template>
+</template> -->
