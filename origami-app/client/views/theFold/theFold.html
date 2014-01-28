@@ -5,7 +5,11 @@
     <div id="modal0" class="modal-hero modal">
       <div>
         <h1>Choose your neighborhood</h1>
-        <select class="neighborhSel"></select>
+        <select class="neighborhSel">
+          {{#each neighborhoods}}
+            <option {{neighborhoodSelected this}}>{{this}}</option>
+          {{/each}}
+        </select>
       </div>
       <div class = "arrow_container">
         <!-- <a class = "arrow_back"> &lt; Back</a> -->

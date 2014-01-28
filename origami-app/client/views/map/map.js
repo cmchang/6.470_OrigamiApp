@@ -1,7 +1,8 @@
 mapExists = false;
-neighborhoods = ["Allston", "Beacon Hill", "Back Bay", "Brighton", "Chinatown", "Downtown", "Downtown Crossing", "Fenway", "Financial District" , "Harvard Square", "Jamaica Plain", "Kenmore", "Mission Hill", "North End", "Symphony", "West End"];
-
+//neighborhoods = ["Allston", "Beacon Hill", "Back Bay", "Brighton", "Chinatown", "Downtown", "Downtown Crossing", "Fenway", "Financial District" , "Harvard Square", "Jamaica Plain", "Kenmore", "Mission Hill", "North End", "Symphony", "West End"];
 Template.map.rendered = function() {
+
+  var neighborhoods = [];
 
   if(!mapExists) {
 
@@ -96,6 +97,9 @@ Template.map.rendered = function() {
     $.getJSON('/json/boston.json', function (data) {
       _.each(data.features, function(feature) {
           neighborhoodsLayer.addData(feature);
+          neighborhoods.push(feature.properties.name);
+          neighborhoods.sort();
+          Session.set("neighborhoods", neighborhoods);
       });
     });
 
@@ -103,8 +107,12 @@ Template.map.rendered = function() {
     $.getJSON('/json/cambridge.json', function (data) {
       _.each(data.features, function(feature) {
           neighborhoodsLayer.addData(feature);
+          neighborhoods.push(feature.properties.NAME);
+          neighborhoods.sort();
+          Session.set("neighborhoods", neighborhoods);
       });
     });
+
 
 
     // $.getJSON('json/boston.json', function (data) {
@@ -115,4 +123,14 @@ Template.map.rendered = function() {
     // });
     mapExists = true;
   }
+  // window.neighboorhSelect = function(){
+  //   // console.log(window.neighborhoods);
+  //   for(var x = 0; x < window.neighborhoods.length; x++){
+  //     if (window.neighborhoods[x] == "Back Bay"){
+  //       $(".neighborhSel").append('<option value="' + String(x) + '"selected="selected" event-data="'+ String(window.neighborhoods[x]) +'" >' + String(window.neighborhoods[x])+ '</option>');
+  //     }else{
+  //       $(".neighborhSel").append('<option value="' + String(x) + '" event-data="' + String(window.neighborhoods[x]) + '">' + String(window.neighborhoods[x])+ '</option>');
+  //     }
+  //   }
+  // };
 };
