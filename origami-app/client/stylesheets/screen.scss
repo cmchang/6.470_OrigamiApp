@@ -304,12 +304,14 @@ body {
   h2 {
     font-weight: 200;
   }
-  .tripElm{
-    display:inline-block;
-    width:230px;
+  .tripContainer{
     &:hover{
       background: #EDEDED;
     }
+  }
+  .tripElm{
+    display:inline-block;
+    width:230px;
   }
   .tripRmv{
     display:inline-block;

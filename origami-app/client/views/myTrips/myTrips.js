@@ -10,7 +10,7 @@ Template.myTrips.events({
 		while (tripDetail.className != "tripContainer"){
 			tripDetail = tripDetail.parentNode;
 		}
-		$(tripDetail.childNodes[1]).css("font-weight","600")
+		// $(tripDetail.childNodes[1]).css("font-weight","600")
 		$(tripDetail.childNodes[3]).show();
 	},
 	'mouseout .tripContainer': function(e) {
@@ -18,7 +18,7 @@ Template.myTrips.events({
 		while(tripDetail.className != "tripContainer"){
 			tripDetail = tripDetail.parentNode;
 		}
-		$(tripDetail.childNodes[1]).css("font-weight","300")
+		// $(tripDetail.childNodes[1]).css("font-weight","300")
 		$(tripDetail.childNodes[3]).hide();
 	}
 });
