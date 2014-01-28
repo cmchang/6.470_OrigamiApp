@@ -6,15 +6,22 @@
 	<div class = "stats">
 		<div class = "badges">
 			<h2>My Badges</h2>
-			{{#each allBadges}}
-				{{> genericBadge}}
-			{{/each}}
-			
-
+			{{#if areBadges}}
+				unclaimed
+				{{#each unclaimedBadges}}
+					{{> genericBadge}}
+				{{/each}}
+				claimed
+				{{#each claimedBadges}}
+					{{> genericBadge}}
+				{{/each}}
+			{{else}}
+				<p>No Bades here :(</p>
+			{{/if}}
 		</div>
+
 		<div class = "myStats">
 			<h2>My Stats</h2>
-
 		</div>
 	</div>
 </div>

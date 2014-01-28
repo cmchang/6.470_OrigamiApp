@@ -4,7 +4,9 @@ Router.configure({
   loadingTemplate: 'loading',
   notFoundTemplate: 'notFound',
   waitOn: function () {
-    return Meteor.subscribe('userTrips');
+    return [
+      Meteor.subscribe('userTrips'),
+    ];
   },
 });
 
@@ -109,25 +111,32 @@ Router.map(function() {
     path: '/gamify',
     template: 'gamify',
     before: filters.requireAuthentication,
+    waitOn: function() {
+      return Meteor.subscribe("allBadges");
+    },
     data : function() {
       return {
-        allBadges: [
-          {name: "Hopeless Romantic", image: "/images/badges/image.png"},
-          {name: "Sushi Inamoratum", image: "/images/badges/image2.png"},
-          {name: "Gorilla", image: "/images/badges/image3.png"},
-          {name: "Lone Wolf", image: "/images/badges/image4.png"},
-          {name: "Family (Wo)Man", image: "/images/badges/image5.png"},
-          {name: "Mall Rat", image: "/images/badges/image6.png"},
-          {name: "Explorer", image: "/images/badges/image7.png"},
-          {name: "Super Trooper", image: "/images/badges/image8.png"},
-          {name: "Gregariuos Groupie", image: "/images/badges/image9.png"},
-          {name: "Polarbear Club", image: "/images/badges/image.png"},
-          {name: "Tree Hugger", image: "/images/badges/image1.png"},
-          {name: "Burger Bum", image: "/images/badges/image2.png"}
-
-        ],
-        badges: Meteor.user().badges,
+        allBadges: Badges.find(),
+        claimedBadges: Badges.find({_id : { $in: Meteor.user().profile.badges}}),
+        unclaimedBadges: Badges.find({_id : { $nin: Meteor.user().profile.badges}}),
         trips: Trips.find({})
+
+        // allBadges: [
+        //   {name: "Hopeless Romantic", image: "/images/badges/image.png"},
+        //   {name: "Sushi Inamoratum", image: "/images/badges/image2.png"},
+        //   {name: "Gorilla", image: "/images/badges/image3.png"},
+        //   {name: "Lone Wolf", image: "/images/badges/image4.png"},
+        //   {name: "Family (Wo)Man", image: "/images/badges/image5.png"},
+        //   {name: "Mall Rat", image: "/images/badges/image6.png"},
+        //   {name: "Explorer", image: "/images/badges/image7.png"},
+        //   {name: "Super Trooper", image: "/images/badges/image8.png"},
+        //   {name: "Gregariuos Groupie", image: "/images/badges/image9.png"},
+        //   {name: "Polarbear Club", image: "/images/badges/image.png"},
+        //   {name: "Tree Hugger", image: "/images/badges/image1.png"},
+        //   {name: "Burger Bum", image: "/images/badges/image2.png"}
+
+        // ],
+        // badges: Meteor.user().badges,
       };
     }
   });
