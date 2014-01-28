@@ -131,7 +131,7 @@ var neighboorhSelect = function(){
 	// console.log(window.neighborhoods);
 	for(var x = 0; x < window.neighborhoods.length; x++){
 		if (window.neighborhoods[x] == "Back Bay"){
-			$(".neighborhSel").append('<option value="' + String(x) + 'disabled="disabled" selected="selected">' + String(window.neighborhoods[x])+ '</option>');
+			$(".neighborhSel").append('<option value="' + String(x) + '"selected="selected">' + String(window.neighborhoods[x])+ '</option>');
 		}else{
 			$(".neighborhSel").append('<option value="' + String(x) + '">' + String(window.neighborhoods[x])+ '</option>');
 		}
