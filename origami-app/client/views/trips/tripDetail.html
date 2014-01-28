@@ -26,16 +26,16 @@
 
 
 <template name="eventDetail">
-  <div class="eventDetail">
+  <div id="li-{{_id}}" class="eventDetail">
     <li>
       <div>
         <div class="eventImg"><img src="{{image}}"></div>
         <div class="eventDetails">
           <ul>
-            <li><a href = "{{url}}" target="_blank" class = "name">{{name}}</a>
-            <li><img src="{{rating.img}}">
-            <li>{{location.address}}
-            <li> {{phoneNo}}
+            <li><a href = "{{url}}" target="_blank" class = "name">{{name}}</a></li>
+            <li><img src="{{rating.img}}"></li>
+            <li>{{location.address}}</li>
+            <li>{{phoneNo}}</li>
           </ul>
         </div>
         <div class = "eventIcons">

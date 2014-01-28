@@ -1,12 +1,13 @@
-if( Meteor.users.find().count() === 0 ) {
-  Accounts.createUser({
-    email: "origami@mit.edu",
-    password: "muchwow",
-    profile: {
-      name: "Team Origami",
-    }
-  });
-}
+// if( Meteor.users.find().count() === 0 ) {
+//   var userId = Accounts.createUser({
+//     email: "origami@mit.edu",
+//     password: "muchwow",
+//     profile: {
+//       name: "Team Origami",
+//       city: "Boston, MA",
+//     }
+//   });
+// }
 
 if( Badges.find().count() === 0 ) {
 

@@ -63,11 +63,11 @@ addUniqueEvent = function( tripId, business ) {
       },
       url: business.url,
       phoneNo: business.display_phone,
-      image: business.image_url,
+      image: business.image_url || "/images/noBusiness.jpg",
       rating: {
         yelp: "4.5",
         user: "",
-        img: business.rating_img_url_small || "http://www.defaultimage.com/image.jpg" // TODO
+        img: business.rating_img_url_small
       },
       // TODO - add actual times to these things
       // tripDetails: {
