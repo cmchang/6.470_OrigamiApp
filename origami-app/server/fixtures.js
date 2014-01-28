@@ -335,12 +335,12 @@ if( Activities.find().count() === 0 ) {
     notForEnergy: ["energetic", "quiet"],
   });
 
-  Activities.insert({
-    keyword: "musical",
-    notForTime: ["morning", "night"],
-    notForGroup: [],
-    notForEnergy: ["energetic", "quiet"],
-  });
+  // Activities.insert({
+  //   keyword: "musical",
+  //   notForTime: ["morning", "night"],
+  //   notForGroup: [],
+  //   notForEnergy: ["energetic", "quiet"],
+  // });
 
   Activities.insert({
     keyword: "bar",
