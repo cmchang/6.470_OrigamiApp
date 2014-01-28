@@ -155,17 +155,22 @@ var pfoldGeneration = function() {
   }, 400);
 };
 
+var rendered = false;
 Template.tripDetail.rendered = function() {
+  if( !rendered ) {
+    rendered = true;
+    pfoldGeneration();
+  }
 
-  pfoldTimeout = Meteor.setTimeout(pfoldGeneration, 2*1000);
+  console.log("rendered");
   
 };
 
 Template.tripDetail.destroyed = function() {
   // console.log("unloading", pfoldTimeout);
   // Meteor.clearTimeout(pfoldTimeout);
-  $pfoldObject.remove();
-  window.markers.clearLayers();
+  // $pfoldObject.remove();
+  // window.markers.clearLayers();
 
 };
 
