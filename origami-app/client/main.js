@@ -1,5 +1,3 @@
-Meteor.subscribe("allBadges");
-
 yelpQuery = function( terms, location, callback ) {
   callback = callback || function() {};
   var auth = {
