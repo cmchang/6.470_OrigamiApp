@@ -6,8 +6,11 @@
       <div>
         <h1>Choose your neighborhood</h1>
         <select class="neighborhSel">
-          {{#each neighborhoods}}
-            <option {{neighborhoodSelected this}}>{{this}}</option>
+          {{#each bostonNeighborhoods}}
+            <option value="boston:{{this}}" {{neighborhoodSelected this}}>{{this}}</option>
+          {{/each}}
+          {{#each cambridgeNeighborhoods}}
+            <option value="cambridge:{{this}}" {{neighborhoodSelected this}}>{{this}}</option>
           {{/each}}
         </select>
       </div>

@@ -285,6 +285,7 @@ body {
   bottom: 40px;
   h2 {
     font-weight: 200;
+    text-transform: capitalize;
   }
 }
 
@@ -305,6 +306,8 @@ body {
     font-weight: 200;
   }
   .tripContainer{
+    line-height: 22px;
+    text-transform: capitalize;
     &:hover{
       background: #EDEDED;
     }
@@ -410,6 +413,10 @@ body {
       }
     }
   }
+}
+.re-roll-trip {
+  font-weight: 300;
+  font-size: 13pt;
 }
 
 // Stats

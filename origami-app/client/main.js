@@ -8,7 +8,8 @@ tripSequence = {
 
 rollTrip = function( tripId ) {
   var trip = Trips.findOne( tripId );
-  var city = Meteor.user().profile.city || "Boston, MA";
+  console.log(trip);
+  var city = trip.city || Meteor.user().profile.city;
   var neighborhood = trip.neighborhood + ", " + city;
 
   var queries = [];
