@@ -1,8 +1,8 @@
 tripSequence = {
   morning: ["morning:meal", "morning:activity"],
-  afternoon: ["afternoon:meal", "afternoon:activity", "afternoon:dessert", "afternoon:activity"],
+  afternoon: ["afternoon:meal", "afternoon:activity", "afternoon:dessert"],
   evening: ["evening:meal", "evening:activity", "evening:dessert"],
-  night: ["night:dessert", "night:activity", "night:activity", "night:meal"],
+  night: ["night:meal", "night:activity", "night:dessert"],
   all: ["morning:meal", "afternoon:activity", "afternoon:meal", "afternoon:activity", "evening:meal", "evening:activity", "evening:dessert", "night:activity"],
 }
 
