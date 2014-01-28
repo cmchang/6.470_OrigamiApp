@@ -15,14 +15,14 @@ rollTrip = function( tripId ) {
 
   Meteor.call("clearTrip", tripId, function() {
     var sequence = tripSequence[trip.time];
-    _.each(sequence, function( tripEvent ) {
+    _.each(sequence, function( tripEvent, index ) {
       var timeActivity = tripEvent.split(":"),
           query = "";
       do {
         query = generateSearchTerm(timeActivity[1], timeActivity[0], trip.group, trip.energy);
       } while( _.indexOf(queries, query) > -1 );
       queries.push(query);
-      findUniqueEvent( tripId, query, neighborhood);
+      findUniqueEvent( tripId, query, neighborhood, index);
     });
   });
 };
@@ -44,10 +44,11 @@ getLatLong = function( address, callback ) {
 };
 
 
-addUniqueEvent = function( tripId, business ) {
-  var locationQuery = business.location.address[0] + " " +
-                        business.location.city + " " +
-                        business.location.postal_code;
+addUniqueEvent = function( tripId, business, index ) {
+  var locationQuery = business.name + ", " +
+                      business.location.address[0] + ", " +
+                      business.location.city + ", " +
+                      business.location.postal_code;
 
   getLatLong( locationQuery, function( latitude, longitude ) {
     var newEvent = {
@@ -55,6 +56,7 @@ addUniqueEvent = function( tripId, business ) {
       tripId: tripId,
       yelpId: business.id,
       name: business.name,
+      order: index,
       location: {
         address: business.location.address[0],
         city: business.location.city,
@@ -81,14 +83,14 @@ addUniqueEvent = function( tripId, business ) {
 
 
 
-findUniqueEvent = function ( tripId, query, neighborhood ) {
+findUniqueEvent = function ( tripId, query, neighborhood, index ) {
 
   var yelpCallback = function(data, query, neighborhood, offset) {
     var business;
     for( var i = 0; i < data.businesses.length; i++ ) {
       business = data.businesses[i];
       if ( Events.find({userId: Meteor.userId(), yelpId: business.id} ).count() === 0 ) {
-        return addUniqueEvent(tripId, business);
+        return addUniqueEvent(tripId, business, index);
       }
     }
     if( i == 20) {

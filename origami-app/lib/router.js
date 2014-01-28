@@ -115,7 +115,7 @@ Router.map(function() {
     data: function() {
       return {
         trip: Trips.findOne(this.params._id),
-        tripEvents: Events.find({tripId: this.params._id})
+        tripEvents: Events.find({tripId: this.params._id}, {sort: {order: 1}})
       };
     },
   });

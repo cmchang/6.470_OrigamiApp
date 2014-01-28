@@ -26,7 +26,7 @@ Template.tripDetail.rendered = function() {
       paddingTopLeft: [20, 80],
       paddingBottomRight: [400, 20]
     });    
-  }, 1000);
+  }, 2000);
 }
 
   // if( !rendered ) {
@@ -73,10 +73,11 @@ Template.eventDetail.events({
     });
   },
   'click .glyphicon-repeat': function(e, template){
-    var evtDet= $(e.target.parentNode.parentNode.parentNode.parentNode);
-    evtDet.toggle("slide", 500, function(){
-      evtDet.remove();
-    });
+    console.log("reroll ", template.data._id);
+    // var evtDet= $(e.target.parentNode.parentNode.parentNode.parentNode);
+    // evtDet.toggle("slide", 500, function(){
+    //   evtDet.remove();
+    // });
   }
 
 });

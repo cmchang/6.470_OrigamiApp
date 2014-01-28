@@ -20,5 +20,10 @@ Template.myTrips.events({
 		}
 		// $(tripDetail.childNodes[1]).css("font-weight","300")
 		$(tripDetail.childNodes[3]).hide();
+	},
+	'click .tripRmv' : function( e, template ) {
+		var tripId = this._id;
+		Trips.remove( tripId );
+		Meteor.call( "clearTrip", tripId );
 	}
 });
