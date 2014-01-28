@@ -153,6 +153,18 @@ if( Dining.find().count() === 0 ) {
     notForGroup: [],
     notForEnergy: [],
   });
+  Dining.insert({
+    keyword: "Food Trucks",
+    notForTime: ["evening", "night"],
+    notForGroup: ["romantic"],
+    notForEnergy: ["quiet", "relaxed"],
+  });
+ Dining.insert({
+    keyword: "sushi",
+    notForTime: ["morning"],
+    notForGroup: [],
+    notForEnergy: [],
+  });
 }
 
 
@@ -185,6 +197,30 @@ if( Dessert.find().count() === 0 ) {
     notForGroup: [],
     notForEnergy: [],
   });
+  Dessert.insert({
+    keyword: "bakery",
+    notForTime: ["morning", "evening", "night"],
+    notForGroup: [],
+    notForEnergy: ["energetic"],
+  });
+  Dessert.insert({
+    keyword: "gelato",
+    notForTime: ["morning"],
+    notForGroup: [],
+    notForEnergy: [],
+  });
+  Dessert.insert({
+    keyword: "cupcakes",
+    notForTime: ["morning"],
+    notForGroup: [],
+    notForEnergy: [],
+  });
+  Dessert.insert({
+    keyword: "internet cafe",
+    notForTime: ["morning"],
+    notForGroup: ["family", "romantic"],
+    notForEnergy: ["energetic"],
+  });
 }
 
 
@@ -194,21 +230,21 @@ if( Activities.find().count() === 0 ) {
     keyword: "park",
     notForTime: ["night"],
     notForGroup: [],
-    notForEnergy: [],
+    notForEnergy: ["energetic"],
   });
 
   Activities.insert({
     keyword: "library",
     notForTime: ["evening", "night"],
     notForGroup: ["romantic", "friends"],
-    notForEnergy: ["energetic"],
+    notForEnergy: ["energetic", "conversational"],
   });
   
   Activities.insert({
     keyword: "wine tasting",
     notForTime: ["morning", "night"],
     notForGroup: ["family"],
-    notForEnergy: [],
+    notForEnergy: ["energetic"],
   });
 
   Activities.insert({
@@ -241,7 +277,7 @@ if( Activities.find().count() === 0 ) {
 
   Activities.insert({
     keyword: "bike path",
-    notForTime: ["morning", "night"],
+    notForTime: ["night"],
     notForGroup: [],
     notForEnergy: ["conversational", "relaxed"],
   });
@@ -264,14 +300,14 @@ if( Activities.find().count() === 0 ) {
     keyword: "historical",
     notForTime: ["morning", "night"],
     notForGroup: ["romantic"],
-    notForEnergy: [],
+    notForEnergy: ["energetic"],
   });
 
   Activities.insert({
     keyword: "ballet",
     notForTime: ["morning", "night"],
     notForGroup: [],
-    notForEnergy: ["energetic", "quiet"],
+    notForEnergy: ["energetic"],
   });
 
   Activities.insert({
@@ -291,13 +327,6 @@ if( Activities.find().count() === 0 ) {
   Activities.insert({
     keyword: "theater",
     notForTime: ["morning", "night"],
-    notForGroup: [],
-    notForEnergy: ["energetic", "quiet"],
-  });
-
-  Activities.insert({
-    keyword: "music",
-    notForTime: ["morning"],
     notForGroup: [],
     notForEnergy: ["energetic", "quiet"],
   });
@@ -329,4 +358,33 @@ if( Activities.find().count() === 0 ) {
     notForGroup: ["family", "romantic"],
     notForEnergy: ["relaxed", "quiet"],
   });
+
+  Activities.insert({
+    keyword: "Mini Golf",
+    notForTime: ["night"],
+    notForGroup: ["alone"],
+    notForEnergy: ["quiet"],
+  });
+
+  Activities.insert({
+    keyword: "Golf",
+    notForTime: ["night"],
+    notForGroup: [],
+    notForEnergy: ["energetic"],
+  })
+
+  Activities.insert({
+    keyword: "Aquariums",
+    notForTime: ["night", "evening"],
+    notForGroup: [],
+    notForEnergy: ["energetic"],
+  });
+
+  Activities.insert({
+    keyword: "Bowling",
+    notForTime: ["morning"],
+    notForGroup: ["alone"],
+    notForEnergy: ["quiet", "relaxed"],
+  });
+
 }
