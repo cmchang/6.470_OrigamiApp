@@ -4,7 +4,12 @@
   {{#if showTrips}}
     <ul>
       {{#each trips}}
-        <li><a href="{{pathFor 'tripDetail' this}}">Trip: {{name}}</a></li>
+        <li>
+        	<div class = "tripContainer">
+	        	<span class = "tripElm"><a href="{{pathFor 'tripDetail' this}}">{{name}}</a></span>
+	        	<span class = "tripRmv eIcon glyphicon glyphicon-remove"></span>
+	        </div>
+        </li>
 	    {{/each}}
     </ul>
   {{else}}
