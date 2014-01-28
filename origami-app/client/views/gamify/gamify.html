@@ -2,7 +2,17 @@
 <div class = "full-page">
 	<div class = "leaderboard">
 		<h2>Leaderboard</h2>
+		{{#if leaders}}
+			<ol>
+				{{#each leaders}}
+					{{> leader}}
+				{{/each}}
+			</ol>
+		{{else}}
+			<p>Users could not be loaded</p>
+		{{/if}}
 	</div>
+
 	<div class = "stats">
 		<div class = "badges">
 			<h2>My Badges</h2>
@@ -30,4 +40,8 @@
 <template name="genericBadge">
 	<!-- {{name}} <img src="{{image}}"> -->
 	<div class = "badge" style="background:url('{{image}}')">{{name}}</div>
+</template>
+
+<template name="leader">
+	<li>{{leaderboardName}} - {{points}}</li>
 </template>

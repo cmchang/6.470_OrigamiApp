@@ -4,13 +4,36 @@ var betaDebug = {
   },
 
   seedUsers: function() {
+    Accounts.createUser({
+      email: "origami2@mit.edu",
+      password: "muchwow",
+      profile: {
+        name: "Bar",
+        imageURL: null,
+        badges: [],
+        points: 0
+      }
+    });
+
+    Accounts.createUser({
+      email: "origami3@mit.edu",
+      password: "muchwow",
+      profile: {
+        name: "Foo",
+        imageURL: null,
+        badges: [],
+        points: 15
+      }
+    });
+
     return Accounts.createUser({
       email: "origami@mit.edu",
       password: "muchwow",
       profile: {
         name: null,
         imageURL: null,
-        badges: null,
+        badges: [],
+        points: 15
       }
     });
   },
