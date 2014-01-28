@@ -98,6 +98,19 @@ var betaDebug = {
       name: "Tree Hugger",
       image: "/images/badges/image3.png"
     });
+    
+    // Badges.insert({
+      // name: "Hopeless Romantic",
+      // image: "/images/badges/image.png"
+    // }),
+          // {name: "Sushi Inamoratum", image: "/images/badges/image2.png"},
+          // {name: "Gorilla", image: "/images/badges/image3.png"},
+          // {name: "Lone Wolf", image: "/images/badges/image4.png"},
+          // {name: "Family (Wo)Man", image: "/images/badges/image5.png"},
+          // {name: "Mall Rat", image: "/images/badges/image6.png"},
+          // {name: "Explorer", image: "/images/badges/image7.png"},
+          // {name: "Super Trooper", image: "/images/badges/image8.png"},
+          // {name: "Gregariuos Groupie", image: "/images/badges/image9.png"},
 
     return [pubOne, pubTwo];
   },
