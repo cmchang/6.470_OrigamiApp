@@ -1,43 +1,47 @@
 <template name="tripDetail">
 
-  <div class="the-fold" style="display:none">
-    <h2>{{trip.name}}</h2>
+  <div class="the-fold">
+    <!-- <div id="uc-container" class="uc-container">
+      <div class="uc-initial-content">
+        <h1>INITIAL CONTENT</h1>
+      </div>
+      <div class="uc-final-content"> -->
+        <h2>{{trip.name}}</h2>
 
-    {{#if tripEvents}}
-      <ul>
-        {{#each tripEvents}}
-          {{> eventDetail}}
-        {{/each}}
-      </ul>
-    {{else}}
-      <h1>No Events</h1>
-    {{/if}}
-    <a class="re-roll-trip" href="#">Roll dat piff again</a> | <a class="add-event-link" href="#">Add Event</a>
+        {{#if tripEvents}}
+          <ul>
+            {{#each tripEvents}}
+              {{> eventDetail}}
+            {{/each}}
+          </ul>
+        {{else}}
+          <h1>No Events</h1>
+        {{/if}}
+        <a class="re-roll-trip" href="#">Roll dat piff again</a> | <a class="add-event-link" href="#">Add Event</a>
+      <!-- </div> -->
+    <!-- </div> -->
   </div>
 
 </template>
 
 
 <template name="eventDetail">
-  <div class = "eventDetail">
+  <div class="eventDetail">
     <li>
       <div>
-        <div class = "eventImg"><img src="{{image}}"></div>
-        <div class = "eventDetails">
+        <div class="eventImg"><img src="{{image}}"></div>
+        <div class="eventDetails">
           <ul>
             <li><a href = "{{url}}" target="_blank" class = "name">{{name}}</a>
             <li><img src="{{rating.img}}">
             <li>{{location.address}}
             <li> {{phoneNo}}
-            
-
           </ul>
         </div>
         <div class = "eventIcons">
         <ul>
           <li><span class = "eIcon glyphicon glyphicon-remove"></span>
           <li><span class = "eIcon glyphicon glyphicon-repeat"></span>
-
         </ul>
         </div>
       </div>

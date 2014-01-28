@@ -41,19 +41,16 @@ Template.theFold.events({
 		}else if(modalID === "modal3"){
 			changeModal($("#modal3"), $("#modal4"));
 		}else if(modalID === "modal4"){
-			Meteor.call("insertTrip",
-				currentTrip.neighborhood,
-				currentTrip.time,
-				currentTrip.type,
-				currentTrip.energy,
-				function( error, tripId ) {
-					if( !error ) {
-						rollTrip( tripId );
-						Router.go('tripDetail', {_id: tripId});
-					} else {
-						alert(error);
-					}
-				});
+			// create trip and direct to page
+			console.log("attempting to insert", currentTrip);
+			Meteor.call("insertTrip", currentTrip, function( error, tripId ) {
+				if( !error ) {
+					rollTrip( tripId );
+					Router.go('tripDetail', {_id: tripId});
+				} else {
+					OrigamiErrors.throw(error);
+				}
+			});
 			return;
 		}
 
@@ -149,7 +146,7 @@ Template.theFold.rendered = function(){
 
 Template.theFold.helpers({
 	neighborhoods: function() {
-		return Session.get("neighborhoods") || [];
+		return Session.get("neighborhoods") || ["Populating neighborhoods..."];
 	},
 	neighborhoodSelected: function( name ) {
 		return name === "Area 2/MIT" ? " selected" : "";

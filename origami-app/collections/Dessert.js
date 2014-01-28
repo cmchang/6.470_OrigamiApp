@@ -1,0 +1,1 @@
+Dessert = new Meteor.Collection("dessert");

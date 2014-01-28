@@ -86,6 +86,9 @@ body {
     border-radius: 3px;
     box-shadow: $modal-box-shadow;
   }
+  select {
+    font-family: Helvetica neue;
+  }
   .left_arrow{
     font-size: 16px;
 
@@ -123,14 +126,6 @@ body {
 .leaflet-left{
   top:50px;
 }
-
-
-// path { stroke-linejoin: round; stroke-linecap: round; fill: none}
-path.river { stroke : #24b; }
-path.road { stroke: #b42; }
-path.water { stroke: #bcf; fill: #abf; }
-path.landuse { stroke: #bb2; fill: #cc2; opacity: 0.4 }
-path.building { stroke: #f00; fill: #f00; }
 
 // Header Styles
 .header {
@@ -254,13 +249,22 @@ path.building { stroke: #f00; fill: #f00; }
   padding-top: 1px;
   padding-bottom: 18px;
 
-  input {
+  input, select {
     display: block;
     margin: 10px auto;
+    width: 250px;
   }
 
   h2 {
       font-weight: 100;
+  }
+}
+
+.about {
+  width: 450px;
+
+  h2 {
+    font-weight: 100;
   }
 }
 
@@ -271,8 +275,8 @@ path.building { stroke: #f00; fill: #f00; }
   padding-left: 15px;
   padding-right: 15px;
   padding-bottom: 15px;
-  top: -28px;
-  right: 10px;
+  top: 85px;
+  right: 40px;
   width: 350px;
   background: $header-bg;
   box-shadow: $modal-box-shadow;
@@ -379,7 +383,7 @@ path.building { stroke: #f00; fill: #f00; }
   }
 }
 
-//gamify
+// Stats
 .leaderboard{
   position: relative;
   display:inline-block;
@@ -419,26 +423,29 @@ path.building { stroke: #f00; fill: #f00; }
 }
 
 
-//badges
-.badgeContainer{
+// Badges
+.badge-container{
   display: inline-block;
+  width: 140px;
   vertical-align: top;
+
+  &.badge-locked {
+
+    .badge {
+      opacity: 0.3;
+    }
+
+    .badge-description {
+      visibility: hidden;
+    }
+  }
+}
   .badge{
-    width: 130px;
-    height: 130px;
     margin: 5px;
     vertical-align: middle;
     text-align: center;
     line-height: 130px;
   }  
-  .badgeDescription{
-    width: 130px;
+  .badge-description{
     text-align: center;
   }
-  .unclaimedBadge{
-    opacity:.3;
-  }
-  .claimedBadge{
-    opacity:1;
-  }
-}

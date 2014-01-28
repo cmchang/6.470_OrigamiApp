@@ -1,115 +1,22 @@
-var betaDebug = {
-  clearUsers: function() {
-    Meteor.users.remove({});
-  },
-
-  seedUsers: function() {
-    Accounts.createUser({
-      email: "origami2@mit.edu",
-      password: "muchwow",
-      profile: {
-        name: "Bar",
-        imageURL: null,
-        badges: [],
-        points: 0
-      }
-    });
-
-    Accounts.createUser({
-      email: "origami3@mit.edu",
-      password: "muchwow",
-      profile: {
-        name: "Foo",
-        imageURL: null,
-        badges: [],
-        points: 15
-      }
-    });
-
-    return Accounts.createUser({
-      email: "origami@mit.edu",
-      password: "muchwow",
-      profile: {
-        name: null,
-        imageURL: null,
-        badges: [],
-        points: 15
-      }
-    });
-  },
-
-  clearTrips: function() {
-    Trips.remove({});
-    Events.remove({});
-  },
-
-  seedTrip: function( seedUserId ) {
-    var seedTripId = Trips.insert({
-    userId: seedUserId,
-    timeOfDay: "evening",
-    mood: 'romantic',
-    energy: 'energetic',
-    moreCrack: 'yes',
-    name: "Fixture Trip"
+if( Meteor.users.find().count() === 0 ) {
+  Accounts.createUser({
+    email: "origami@mit.edu",
+    password: "muchwow",
+    profile: {
+      name: "Team Origami",
+    }
   });
+}
 
-    Events.insert({
-      tripId: seedTripId,
-      userId: seedUserId,
-      name: "Sam LaGrassa's",
-      location: {
-        address: "44 Province St",
-        city: "Boston",
-        latitude: "",
-        longitude: "",
-      },
-      phoneNo: "6173576861",
-      image: "http://s3-media1.ak.yelpcdn.com/bphoto/85_HoifJk7HpvkoiDTQI4g/ms.jpg",
-      rating: {
-        yelp: "4.5",
-        user: "",
-      },
-      tripDetails: {
-        order: 1,
-        time: "6:00",
-      }
-    });
+if( Badges.find().count() === 0 ) {
 
-    Events.insert({
-      tripId: seedTripId,
-      userId: seedUserId,
-      name: "Coke Park/Whitey's",
-      location: {
-        address: "268 W Broadway",
-        city: "Boston",
-        latitude: "",
-        longitude: "",
-      },
-      phoneNo: "6174644869",
-      image: "http://s3-media1.ak.yelpcdn.com/bphoto/WARBbGlrukFcgcJbdNRY8Q/ms.jpg",
-      rating: {
-        yelp: "4.5",
-        user: "",
-      },
-      tripDetails: {
-        order: 1,
-        time: "8:00",
-      }
-    });
-  },
-
-  clearBadges: function() {
-    Badges.remove({});
-  },
-
-  seedAllBadges: function() {
-    var pubOne = Badges.insert({
+    Badges.insert({
       name: "Hopeless Romantic",
       image: "/images/badges/image.png",
       description: "To unlock this badge, go on 15 romantic dates <3"
 
     });
-    var pubTwo = Badges.insert({
+    Badges.insert({
       name: "Sushi Inamoratum",
       image: "/images/badges/image1.png",
       description: "To unlock this badge, almost get mercury poisoning! Visit 25 japanese restaurants (including Douzo)"
@@ -172,35 +79,253 @@ var betaDebug = {
       image: "/images/badges/image1.png",
       description: "To unlock this badge, go to 20 burger joints"
     });
-          // {name: "Sushi Inamoratum", image: "/images/badges/image2.png"},
-          // {name: "Gorilla", image: "/images/badges/image3.png"},
-          // {name: "Lone Wolf", image: "/images/badges/image4.png"},
-          // {name: "Family (Wo)Man", image: "/images/badges/image5.png"},
-          // {name: "Mall Rat", image: "/images/badges/image6.png"},
-          // {name: "Explorer", image: "/images/badges/image7.png"},
-          // {name: "Super Trooper", image: "/images/badges/image8.png"},
-          // {name: "Gregariuos Groupie", image: "/images/badges/image9.png"},
-
-    return [pubOne, pubTwo];
-  },
-
-  seedUserBadges: function(userId, badges) {
-    console.log(badges);
-    Meteor.users.update(userId, {$set: {"profile.badges": badges}});
-  }
-};
+}
 
 
+if( Dining.find().count() === 0 ) {
+  Dining.insert({
+    keyword: "breakfast",
+    notForTime: ["afternoon", "evening", "night"],
+    notForGroup: [],
+    notForEnergy: [],
+  });
 
-Meteor.startup( function() {
-  // Debugging functions. Should be switched off most of the time
+  Dining.insert({
+    keyword: "coffee",
+    notForTime: ["evening", "night"],
+    notForGroup: [],
+    notForEnergy: [],
+  });
 
-  // betaDebug.clearUsers();
-  // var betaUserId = betaDebug.seedUsers();
-  // betaDebug.clearTrips();
-  // // betaDebug.seedTrip( betaUserId );
-  // betaDebug.clearBadges();
-  // var publicBadges = betaDebug.seedAllBadges();
-  // betaDebug.seedUserBadges(betaUserId, publicBadges);
+  Dining.insert({
+    keyword: "cafe",
+    notForTime: ["evening", "night"],
+    notForGroup: [],
+    notForEnergy: [],
+  });
 
-});
+  Dining.insert({
+    keyword: "pancakes",
+    notForTime: ["afternoon", "evening", "night"],
+    notForGroup: ["romantic"],
+    notForEnergy: [],
+  });
+
+  Dining.insert({
+    keyword: "diner",
+    notForTime: [],
+    notForGroup: ["romantic"],
+    notForEnergy: ["quiet"],
+  });
+
+  Dining.insert({
+    keyword: "sandwiches",
+    notForTime: ["morning", "evening", "night"],
+    notForGroup: [],
+    notForEnergy: [],
+  });
+
+  Dining.insert({
+  keyword: "italian",
+  notForTime: ["morning"],
+  notForGroup: [],
+  notForEnergy: [],
+  });
+
+  Dining.insert({
+    keyword: "japanese",
+    notForTime: ["morning"],
+    notForGroup: [],
+    notForEnergy: [],
+    });
+
+  Dining.insert({
+    keyword: "american",
+    notForTime: ["morning"],
+    notForGroup: [],
+    notForEnergy: [],
+  });
+
+  Dining.insert({
+    keyword: "dinner",
+    notForTime: ["morning", "afternoon"],
+    notForGroup: [],
+    notForEnergy: [],
+  });
+}
+
+
+if( Dessert.find().count() === 0 ) {
+
+  Dessert.insert({
+    keyword: "dessert",
+    notForTime: ["morning"],
+    notForGroup: [],
+    notForEnergy: [],
+  });
+
+  Dessert.insert({
+    keyword: "ice cream",
+    notForTime: ["morning"],
+    notForGroup: [],
+    notForEnergy: [],
+  });
+
+  Dessert.insert({
+    keyword: "froyo",
+    notForTime: ["morning"],
+    notForGroup: [],
+    notForEnergy: [],
+  });
+
+  Dessert.insert({
+    keyword: "pastry",
+    notForTime: ["morning"],
+    notForGroup: [],
+    notForEnergy: [],
+  });
+}
+
+
+if( Activities.find().count() === 0 ) {
+
+  Activities.insert({
+    keyword: "park",
+    notForTime: ["night"],
+    notForGroup: [],
+    notForEnergy: [],
+  });
+
+  Activities.insert({
+    keyword: "library",
+    notForTime: ["evening", "night"],
+    notForGroup: ["romantic", "friends"],
+    notForEnergy: ["energetic"],
+  });
+  
+  Activities.insert({
+    keyword: "wine tasting",
+    notForTime: ["morning", "night"],
+    notForGroup: ["family"],
+    notForEnergy: [],
+  });
+
+  Activities.insert({
+    keyword: "rock climbing",
+    notForTime: ["morning", "night"],
+    notForGroup: ["romantic", "alone"],
+    notForEnergy: ["conversational", "relaxed", "quiet"],
+  });
+
+  Activities.insert({
+    keyword: "kayaking",
+    notForTime: ["morning", "night"],
+    notForGroup: ["romantic", "alone"],
+    notForEnergy: ["conversational", "relaxed", "quiet"],
+  });
+
+  Activities.insert({
+    keyword: "sky zone",
+    notForTime: ["morning", "night"],
+    notForGroup: ["romantic", "alone"],
+    notForEnergy: ["conversational", "relaxed", "quiet"],
+  });
+
+  Activities.insert({
+    keyword: "shopping",
+    notForTime: ["morning"],
+    notForGroup: ["romantic"],
+    notForEnergy: ["energetic", "relaxed"],
+  });
+
+  Activities.insert({
+    keyword: "bike path",
+    notForTime: ["morning", "night"],
+    notForGroup: [],
+    notForEnergy: ["conversational", "relaxed"],
+  });
+
+  Activities.insert({
+    keyword: "museums",
+    notForTime: ["morning", "night"],
+    notForGroup: ["romantic"],
+    notForEnergy: ["energetic"],
+  });
+
+  Activities.insert({
+    keyword: "movies",
+    notForTime: ["morning"],
+    notForGroup: [],
+    notForEnergy: ["conversational", "energetic", "quiet"],
+  });
+
+  Activities.insert({
+    keyword: "historical",
+    notForTime: ["morning", "night"],
+    notForGroup: ["romantic"],
+    notForEnergy: [],
+  });
+
+  Activities.insert({
+    keyword: "ballet",
+    notForTime: ["morning", "night"],
+    notForGroup: [],
+    notForEnergy: ["energetic", "quiet"],
+  });
+
+  Activities.insert({
+    keyword: "opera",
+    notForTime: ["morning", "night"],
+    notForGroup: [],
+    notForEnergy: ["energetic", "quiet"],
+  });
+
+  Activities.insert({
+    keyword: "comedy",
+    notForTime: ["morning", "night"],
+    notForGroup: [],
+    notForEnergy: ["energetic", "quiet"],
+  });
+
+  Activities.insert({
+    keyword: "theater",
+    notForTime: ["morning", "night"],
+    notForGroup: [],
+    notForEnergy: ["energetic", "quiet"],
+  });
+
+  Activities.insert({
+    keyword: "music",
+    notForTime: ["morning"],
+    notForGroup: [],
+    notForEnergy: ["energetic", "quiet"],
+  });
+
+  Activities.insert({
+    keyword: "musical",
+    notForTime: ["morning", "night"],
+    notForGroup: [],
+    notForEnergy: ["energetic", "quiet"],
+  });
+
+  Activities.insert({
+    keyword: "bar",
+    notForTime: ["morning", "afternoon"],
+    notForGroup: ["family", "romantic"],
+    notForEnergy: ["relaxed", "quiet"],
+  });
+
+  Activities.insert({
+    keyword: "club",
+    notForTime: ["morning", "afternoon"],
+    notForGroup: ["family", "romantic"],
+    notForEnergy: ["relaxed", "quiet"],
+  });
+
+  Activities.insert({
+    keyword: "dive bar",
+    notForTime: ["morning", "afternoon"],
+    notForGroup: ["family", "romantic"],
+    notForEnergy: ["relaxed", "quiet"],
+  });
+}

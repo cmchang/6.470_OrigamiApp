@@ -1,7 +1,16 @@
+// Trip = {,
+//   userId,
+//   neighborhood,
+//   time,
+//   group,
+//   energy,
+//   name,
+//   created
+// };
+
 Trips = new Meteor.Collection("trips");
 
 // Declare permissions required
-// ex.
 Trips.allow({
   insert: ownsDocument,
   update: ownsDocument,
@@ -11,27 +20,28 @@ Trips.allow({
 Trips.deny({
   update: function(userId, post, fieldNames) {
     // may only edit the following two fields:
-    return (_.without(fieldNames, 'userId', 'timeOfDay', 'mood', 'energy', 'moreCrack').length > 0);
+    return (_.without(fieldNames, 'timeOfDay', 'mood', 'energy', 'moreCrack').length > 0);
   }
 });
 
 Meteor.methods({
-  insertTrip: function( neighborhood, timeOfDay, mood, energy ) {
+  insertTrip: function( tripAttributes ) {
     var user = Meteor.user();
 
     // ensure the user is logged in
     if (!user)
       throw new Meteor.Error(401, "You need to login to create new trips");
 
-    var trip = {
+    // ensure the post has a title
+    if ( !tripAttributes.neighborhood || !tripAttributes.time || !tripAttributes.group || !tripAttributes.energy )
+      throw new Meteor.Error(422, 'You are missing key fields, please go back and fill those in');
+
+    // pick out the whitelisted keys
+    var trip = _.extend(_.pick(tripAttributes, 'neighborhood', 'time', 'group', 'energy'), {
       userId: user._id,
-      neighborhood: neighborhood,
-      timeOfDay: timeOfDay,
-      mood: mood,
-      energy: energy,
-      name: "A "+ mood + " " + timeOfDay +" for " + energy ,
-      created: new Date().getTime()
-    };
+      name: "A "+ tripAttributes.group + " " + tripAttributes.time +" for " + tripAttributes.energy,
+      created: new Date().getTime(),
+    });
 
     var tripId =  Trips.insert(trip);
   

@@ -4,14 +4,18 @@ Template.signUp.events({
 
     var newUser = {
       email: $(e.target).find('#user-email').val(),
-      password: $(e.target).find('#user-password').val()
+      password: $(e.target).find('#user-password').val(),
+      profile: {
+        name: $(e.target).find('#user-name').val(),
+        city: $(e.target).find('#user-city').val(),
+      }
     };
 
     Accounts.createUser( newUser, function( error ) {
       if( !error ) {
         Router.go("landing");
       } else {
-        alert( error );
+        OrigamiErrors.throw( error );
       }
     });
   }

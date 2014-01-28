@@ -1,0 +1,1 @@
+Dining = new Meteor.Collection("dining");

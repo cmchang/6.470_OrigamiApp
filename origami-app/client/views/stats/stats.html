@@ -1,0 +1,67 @@
+<template name="stats">
+
+	<div class="full-page">
+
+		<div class="leaderboard">
+			<h2>Leaderboard</h2>
+			{{#if leaders}}
+				<ol>
+					{{#each leaders}}
+						{{> leader}}
+					{{/each}}
+				</ol>
+			{{else}}
+				<p>Users could not be loaded</p>
+			{{/if}}
+		</div><!-- /leaderboard -->
+
+		<div class="stats">
+			<div class="badges">
+				<h2>My Badges <small>{{unlockedBadgeCount}}/{{totalBadgeCount}}</h2>
+				{{#if areBadges}}
+					<!-- Locked Badges -->
+					{{#each lockedBadges}}
+						{{> lockedBadge}}
+					{{/each}}
+					<!-- Unlocked Badges -->
+					{{#each unlockedBadges}}
+						{{> unlockedBadge}}
+					{{/each}}
+				{{else}}
+					<p>No Bades here :(</p>
+				{{/if}}
+			</div><!-- /badges -->
+
+	<!-- TODO
+			<div class = "myStats">
+				<h2>My Stats</h2>
+			</div>
+	-->
+
+		</div><!-- /stats -->
+	</div><!-- /full-page -->
+</template>
+
+
+<!-- Leader Template -->
+<template name="leader">
+	<li>{{leaderboardName}} - {{this.points}}</li>
+</template>
+
+
+<!-- Unlocked Badge Template -->
+<template name="unlockedBadge">
+	<div class="badge-container ">
+		<div class="badge" style="background:url('{{image}}')">{{name}}</div>
+		<div class="badge-description">{{description}}</div>
+	</div>
+</template>
+
+
+<!-- Locked Badge Template -->
+<template name="lockedBadge">
+	<div class="badge-container badge-locked">
+		<div class="badge" style="background:url('{{image}}')">{{name}}</div>
+		<div class="badge-description">{{description}}</div>
+	</div>
+</template>

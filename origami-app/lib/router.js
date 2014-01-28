@@ -6,6 +6,9 @@ Router.configure({
   waitOn: function () {
     return [
       Meteor.subscribe('userTrips'),
+      Meteor.subscribe('dining'),
+      Meteor.subscribe('dessert'),
+      Meteor.subscribe('activities'),
     ];
   },
 });
@@ -56,6 +59,8 @@ Router.map(function() {
     }
   });
 
+  this.route('about');
+
   this.route('theFold', {
     path: '/the-fold',
     template: 'theFold',
@@ -64,7 +69,7 @@ Router.map(function() {
       function() {
         Session.set("currentTrip", {
           time: "evening",
-          type: 'friends',
+          group: 'friends',
           energy: 'conversation',
           neighborhood: 'Area 2/MIT'
         });
@@ -92,7 +97,15 @@ Router.map(function() {
   this.route('tripDetail', {
     path: '/trip/:_id',
     template: 'tripDetail',
-    before: filters.requireAuthentication,
+    before: [
+      filters.requireAuthentication,
+      function() {
+        if( Trips.find({_id: this.params._id}).count() === 0 ) {
+          this.render('notFound');
+          this.stop();
+        }
+      }
+    ],
     waitOn: function() {
       return [
         Meteor.subscribe("tripDetail", this.params._id ),
@@ -107,9 +120,9 @@ Router.map(function() {
     },
   });
 
-  this.route('gamify', {
-    path: '/gamify',
-    template: 'gamify',
+  this.route('stats', {
+    path: '/stats',
+    template: 'stats',
     before: filters.requireAuthentication,
     waitOn: function() {
       return [
@@ -120,9 +133,8 @@ Router.map(function() {
     data : function() {
       return {
         leaders: Meteor.users.find({}, {sort: {points: -1}}),
-        allBadges: Badges.find(),
-        claimedBadges: Badges.find({_id : { $in: Meteor.user().profile.badges}}),
-        unclaimedBadges: Badges.find({_id : { $nin: Meteor.user().profile.badges}}),
+        unlockedBadges: Badges.find({_id : { $in: Meteor.user().badges}}),
+        lockedBadges: Badges.find({_id : { $nin: Meteor.user().badges}}),
         trips: Trips.find({})
       };
     }
