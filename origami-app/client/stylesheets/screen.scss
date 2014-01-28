@@ -304,6 +304,20 @@ body {
   h2 {
     font-weight: 200;
   }
+  .tripElm{
+    display:inline-block;
+    width:230px;
+  }
+  .tripRmv{
+    display:inline-block;
+    display:none;
+    opacity: .3;
+    &:hover{
+        opacity: .8;
+        cursor: pointer;
+    }
+  }
+
 }
 
 .neighborhSel{
@@ -363,7 +377,7 @@ body {
   }
   .eventDetails{
     // padding-left:-30px;
-    width: 156px;
+    width: 200px;
     padding:0px;
     margin-left: -30px;
     .name{

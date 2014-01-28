@@ -1,25 +1,25 @@
-var foldProperties = [
-	{
-		cssVertical: "top",
-		cssHorizontal: "left",
-		folddirection: [["right", "bottom"], ["bottom", "right"]]
-	},
-	{
-		cssVertical: "top",
-		cssHorizontal: "right",
-		folddirection: [["left", "bottom"], ["bottom", "left"]]
-	},
-	{
-		cssVertical: "bottom",
-		cssHorizontal: "right",
-		folddirection: [["left", "top"], ["top", "left"]]
-	},
-	{
-		cssVertical: "bottom",
-		cssHorizontal: "left",
-		folddirection: [["right", "top"], ["top", "right"]]
-	}
-];
+// var foldProperties = [
+// 	{
+// 		cssVertical: "top",
+// 		cssHorizontal: "left",
+// 		folddirection: [["right", "bottom"], ["bottom", "right"]]
+// 	},
+// 	{
+// 		cssVertical: "top",
+// 		cssHorizontal: "right",
+// 		folddirection: [["left", "bottom"], ["bottom", "left"]]
+// 	},
+// 	{
+// 		cssVertical: "bottom",
+// 		cssHorizontal: "right",
+// 		folddirection: [["left", "top"], ["top", "left"]]
+// 	},
+// 	{
+// 		cssVertical: "bottom",
+// 		cssHorizontal: "left",
+// 		folddirection: [["right", "top"], ["top", "right"]]
+// 	}
+// ];
 
 // window.pfoldTimeout = -1;
 
@@ -64,11 +64,13 @@ var foldProperties = [
 // 	}, 800);
 // };
 
-Template.landing.rendered = function() {
+// Template.landing.rendered = function() {
 
-	// window.pfoldTimeout = Meteor.setTimeout(pfoldGeneration, 2*1000);
+// 	window.pfoldTimeout = Meteor.setTimeout(pfoldGeneration, 2*1000);
+
 	
-};
+// };
+
 
 Template.landing.destroyed = function() {
 	// console.log("unloading", pfoldTimeout);

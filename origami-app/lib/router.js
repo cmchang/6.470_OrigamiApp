@@ -133,7 +133,7 @@ Router.map(function() {
     data : function() {
       return {
         leaders: Meteor.users.find({}, {sort: {points: -1}}),
-        unlockedBadges: Badges.find({_id : { $in: Meteor.user().badges}}),
+        // unlockedBadges: Badges.find({_id : { $in: Meteor.user().badges}}),
         lockedBadges: Badges.find({_id : { $nin: Meteor.user().badges}}),
         trips: Trips.find({})
       };
