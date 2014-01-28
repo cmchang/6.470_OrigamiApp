@@ -3,7 +3,8 @@ Template.tripDetail.events({
     e.preventDefault();
 
     var trip = template.data.trip;
-
+    $("the-fold").hide();
+    $("body").append($(".the-fold"));
     rollTrip(trip._id);
   },
 
@@ -20,6 +21,7 @@ Template.tripDetail.events({
 Template.eventDetail.events({
   'mouseover .eventDetail': function(e, template){
     var DOMelm = e.target.parentNode;
+    
     while(DOMelm.className != "eventDetail"){
       DOMelm = DOMelm.parentNode;
     }
@@ -83,83 +85,87 @@ Template.tripDetail.destroyed = function() {
 
 ///// Pfold /////
 
-// var foldProperties = [
-//   {
-//     cssVertical: "top",
-//     cssHorizontal: "left",
-//     folddirection: [["right", "bottom"], ["bottom", "right"]]
-//   },
-//   {
-//     cssVertical: "top",
-//     cssHorizontal: "right",
-//     folddirection: [["left", "bottom"], ["bottom", "left"]]
-//   },
-//   {
-//     cssVertical: "bottom",
-//     cssHorizontal: "right",
-//     folddirection: [["left", "top"], ["top", "left"]]
-//   },
-//   {
-//     cssVertical: "bottom",
-//     cssHorizontal: "left",
-//     folddirection: [["right", "top"], ["top", "right"]]
-//   }
-// ];
+var foldProperties = [
+  {
+    cssVertical: "top",
+    cssHorizontal: "left",
+    folddirection: [["right", "bottom"], ["bottom", "right"]]
+  },
+  {
+    cssVertical: "top",
+    cssHorizontal: "right",
+    folddirection: [["left", "bottom"], ["bottom", "left"]]
+  },
+  {
+    cssVertical: "bottom",
+    cssHorizontal: "right",
+    folddirection: [["left", "top"], ["top", "left"]]
+  },
+  {
+    cssVertical: "bottom",
+    cssHorizontal: "left",
+    folddirection: [["right", "top"], ["top", "right"]]
+  }
+];
 
-// var pfoldTimeout;
+var pfoldTimeout;
 
-// var pfoldGeneration = function() {
+var pfoldGeneration = function() {
 
-//   var $pfoldObject = $('<div class="pfold-container"></div>'),
-//       $ucContainer = $('<div class="uc-container"></div>').appendTo($pfoldObject),
-//       $initialContent = $('<div class="uc-initial-content"></div>').appendTo($ucContainer),
-//       $finalContent = $('<div class="uc-final-content"></div>').appendTo($ucContainer);
+  var $pfoldObject = $('<div class="pfold-container"></div>'),
+      $ucContainer = $('<div class="uc-container"></div>').appendTo($pfoldObject),
+      $initialContent = $('<div class="uc-initial-content"></div>').appendTo($ucContainer),
+      $finalContent = $('<div class="uc-final-content" style="position:absolute;top:40px;bottom:40px;width400px;"></div>').appendTo($ucContainer);
 
-//   var foldCSS = foldProperties[Math.floor(Math.random() * 3)];
-//   $pfoldObject.css(foldCSS.cssVertical, _.random(20, 250) + "px");
-//   $pfoldObject.css(foldCSS.cssHorizontal, _.random(20, 250) + "px");
+  // var foldCSS = foldProperties[Math.floor(Math.random() * 3)];
+  // $pfoldObject.css(foldCSS.cssVertical, _.random(20, 250) + "px");
+  // $pfoldObject.css(foldCSS.cssHorizontal, _.random(20, 250) + "px");
+  console.log(foldCSS);
+  var foldCSS = foldProperties[1];
+  $pfoldObject.css("top", "80px");
+  $pfoldObject.css("right", "40px");
 
-//   // Set content of divs
-//   $initialContent.append('<img src="/images/thumbs-1.jpg" alt="image01" />');
-//   $finalContent.append('<img src="/images/large-1.jpg" alt="image01-large" />');
+  // Set content of divs
+  $initialContent.append('<div style="width:100%;height:100%;background:white;text-align: center;vertical-align: middle;line-height: 8;">Origami</div>');
+  $finalContent.append($(".the-fold"));
 
-//   $pfoldObject.prependTo('body');
+  $pfoldObject.prependTo('body');
+  $(".the-fold").show();
+  var pfold = $ucContainer.pfold({
+    easing : 'ease-in-out',
+    folds : 2,
+    folddirection: foldCSS.folddirection[_.random(1)],
+    centered : false,
+    // Timeout to fold it back up
+    // onEndUnfolding: function() {
+    //   Meteor.setTimeout(function() {
+    //     pfold.fold();
+    //   }, _.random(4, 8)*1000);
+    // },
+    // Remove it once it's been folded back up.
+    // onEndFolding: function() {
+    //   $pfoldObject.remove();
+    //   pfoldTimeout = Meteor.setTimeout(pfoldGeneration, _.random(4,10)*1000);
+    //   console.log("reset with to ", pfoldTimeout);
+    // }
+  });
 
-//   var pfold = $ucContainer.pfold({
-//     easing : 'ease-in-out',
-//     folds : 2,
-//     folddirection: foldCSS.folddirection[_.random(1)],
-//     centered : false,
-//     // Timeout to fold it back up
-//     onEndUnfolding: function() {
-//       Meteor.setTimeout(function() {
-//         pfold.fold();
-//       }, _.random(4, 8)*1000);
-//     },
-//     // Remove it once it's been folded back up.
-//     onEndFolding: function() {
-//       $pfoldObject.remove();
-//       pfoldTimeout = Meteor.setTimeout(pfoldGeneration, _.random(4,10)*1000);
-//       console.log("reset with to ", pfoldTimeout);
-//     }
-//   });
+  Meteor.setTimeout(function(){
+    pfold.unfold();
+  }, 400);
+};
 
-//   Meteor.setTimeout(function(){
-//     pfold.unfold();
-//   }, 800);
-// };
+Template.tripDetail.rendered = function() {
 
-// Template.landing.rendered = function() {
-
-//   pfoldTimeout = Meteor.setTimeout(pfoldGeneration, 2*1000);
+  pfoldTimeout = Meteor.setTimeout(pfoldGeneration, 2*1000);
   
-// };
+};
 
-// Template.landing.destroyed = function() {
-//   console.log("unloading", pfoldTimeout);
-//   Meteor.clearTimeout(pfoldTimeout);
+Template.tripDetail.destroyed = function() {
+  // console.log("unloading", pfoldTimeout);
+  // Meteor.clearTimeout(pfoldTimeout);
+  $pfoldObject.remove();
+  window.markers.clearLayers();
 
-//   window.markers.clearLayers();
-
-// };
+};
 
