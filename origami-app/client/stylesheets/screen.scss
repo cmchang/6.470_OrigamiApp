@@ -307,6 +307,9 @@ body {
   .tripElm{
     display:inline-block;
     width:230px;
+    &:hover{
+      background: #EDEDED;
+    }
   }
   .tripRmv{
     display:inline-block;
@@ -357,10 +360,13 @@ body {
 // EventDetail
 .eventDetail{
   list-style-type: none;
-  margin-left: -30px;
+  margin-left: -40px;
 
+  &:hover{
+    background: #EDEDED;
+  }
   &.hovered {
-    background: rgba(255, 100, 100, 0.5);
+    background: #EDEDED;
   }
   
   .eventImg, .eventDetails, .eventIcons{
@@ -374,6 +380,8 @@ body {
   }
   .eventImg{
     width: 100px;
+    position: relative;
+    left: 12px;
   }
   .eventDetails{
     // padding-left:-30px;
