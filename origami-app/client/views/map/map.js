@@ -43,7 +43,8 @@ Template.map.created = function() {
 mapExists = false;
 Template.map.rendered = function() {
 
-  var neighborhoods = [];
+  var bostonNeighborhoods = [],
+      cambridgeNeighborhoods = [];
 
   if(!mapExists) {
 
@@ -88,20 +89,20 @@ Template.map.rendered = function() {
     $.getJSON('/json/boston.json', function (data) {
       _.each(data.features, function(feature) {
           neighborhoodsLayer.addData(feature);
-          neighborhoods.push(feature.properties.name);
+          bostonNeighborhoods.push(feature.properties.name);
       });
-      neighborhoods.sort();
-      Session.set("neighborhoods", neighborhoods);
+      bostonNeighborhoods.sort();
+      Session.set("bostonNeighborhoods", bostonNeighborhoods);
     });
 
     // Populate Cambridge neighborhoods layer
     $.getJSON('/json/cambridge.json', function (data) {
       _.each(data.features, function(feature) {
           neighborhoodsLayer.addData(feature);
-          neighborhoods.push(feature.properties.NAME);
+          cambridgeNeighborhoods.push(feature.properties.NAME);
       });
-      neighborhoods.sort();
-      Session.set("neighborhoods", neighborhoods);
+      cambridgeNeighborhoods.sort();
+      Session.set("cambridgeNeighborhoods", cambridgeNeighborhoods);
     });
 
     mapExists = true;

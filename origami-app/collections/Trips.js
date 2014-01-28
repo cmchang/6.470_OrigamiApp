@@ -33,13 +33,35 @@ Meteor.methods({
       throw new Meteor.Error(401, "You need to login to create new trips");
 
     // ensure the post has a title
-    if ( !tripAttributes.neighborhood || !tripAttributes.time || !tripAttributes.group || !tripAttributes.energy )
+    if ( !tripAttributes.city || !tripAttributes.neighborhood || !tripAttributes.time || !tripAttributes.group || !tripAttributes.energy )
       throw new Meteor.Error(422, 'You are missing key fields, please go back and fill those in');
 
+    var adj, time, group;
+    if( tripAttributes.energy == "energetic") {
+      adj = "An energetic";
+    } else if( tripAttributes.energy == "conversational") {
+      adj = "A talkative";
+    } else {
+      adj = "A " + tripAttributes.energy;
+    }
+    if( tripAttributes.time == "all") {
+      time = "day";
+    } else {
+      time = tripAttributes.time;
+    }
+    if( tripAttributes.group == "romantic") {
+      group = "with a spark"
+    } else if( tripAttributes.group == "alone") {
+      group = "on your own"
+    } else {
+      group = "with " + tripAttributes.group
+    }
+
+
     // pick out the whitelisted keys
-    var trip = _.extend(_.pick(tripAttributes, 'neighborhood', 'time', 'group', 'energy'), {
+    var trip = _.extend(_.pick(tripAttributes, 'city', 'neighborhood', 'time', 'group', 'energy'), {
       userId: user._id,
-      name: "A "+ tripAttributes.group + " " + tripAttributes.time +" for " + tripAttributes.energy,
+      name: adj + " " + time + " " + group,
       created: new Date().getTime(),
     });
 

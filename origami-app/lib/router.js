@@ -71,7 +71,8 @@ Router.map(function() {
           time: "evening",
           group: 'friends',
           energy: 'conversation',
-          neighborhood: 'Area 2/MIT'
+          neighborhood: 'Area 2/MIT',
+          city: "cambridge"
         });
       }
     ]

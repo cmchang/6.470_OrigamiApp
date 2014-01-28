@@ -63,7 +63,9 @@ Template.theFold.events({
 	'change .neighborhSel': function( e, template ) {
 		var currentTrip = Session.get("currentTrip");
 		var $neighborhoodSel = $(e.target).find("option:selected");
-		currentTrip["neighborhood"] = $neighborhoodSel.text();
+		var cityNeighborhood = $neighborhoodSel.val().split(":");
+		currentTrip["city"] = cityNeighborhood[0];
+		currentTrip["neighborhood"] = cityNeighborhood[1];
 		Session.set("currentTrip", currentTrip);
 	},
 
@@ -145,8 +147,11 @@ Template.theFold.rendered = function(){
 };
 
 Template.theFold.helpers({
-	neighborhoods: function() {
-		return Session.get("neighborhoods") || ["Populating neighborhoods..."];
+	bostonNeighborhoods: function() {
+		return Session.get("bostonNeighborhoods") || ["Populating neighborhoods..."];
+	},
+	cambridgeNeighborhoods: function() {
+		return Session.get("cambridgeNeighborhoods") || [];
 	},
 	neighborhoodSelected: function( name ) {
 		return name === "Area 2/MIT" ? " selected" : "";
