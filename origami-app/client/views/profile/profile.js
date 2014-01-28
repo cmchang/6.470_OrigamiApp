@@ -43,31 +43,31 @@ Template.profile.events({
     Session.set("editname", !editable);
   },
 
-  'click .edit-neighborhood' : function() {
-    var editable = Session.get("editneighborhood"); //change
-    var $name = $(".profile-neighborhood");
-    var newName = $name.val();
-    var $edit = $(".edit-neighborhood");
+  'click .edit-home' : function() {
+    var editable = Session.get("editAddress"); //change
+    var $address = $(".profile-home");
+    var newName = $address.val();
+    var $edit = $(".edit-home");
     if( editable ) {
-      // Process new name
-      $name.prop("disabled", true);
+      // Process new address
+      $address.prop("disabled", true);
       if( newName !== "") {
-        // Save new name
-        Meteor.users.update({_id:Meteor.user()._id}, {$set:{"profile.name":$name.val()}});
+        // Save new address
+        Meteor.users.update({_id:Meteor.user()._id}, {$set:{"profile.address":$address.val()}});
       } else {
-        // New name was empty, reset to default text
-        $name.val("No Name Set");
+        // New address was empty, reset to default text
+        $address.val("No Name Set");
       }
     } else {
-      // Edit new name
+      // Edit new address
       $edit.text("Save");
-      $name.prop('disabled', false);
+      $address.prop('disabled', false);
       if ( newName === "No Name Set" ) {
-        $name.val("");
+        $address.val("");
       }
-      $name.focus();
+      $address.focus();
     }
-    Session.set("editneighborhood", !editable);
+    Session.set("editAddress", !editable);
   }
 
   // 'click .edit-neighborhood' : function() {
@@ -102,6 +102,10 @@ Template.profile.helpers({
   profileName: function() {
     var name = Meteor.user().profile.name;
     return name || "No Name Set";
+  },
+  profileAddress: function() {
+    var address = Meteor.user().profile.address;
+    return address || "No Address Set";
   },
   profilePictureURL: function() {
     var url = Meteor.user().profile.imageURL || "/images/no-user-image.jpg";
