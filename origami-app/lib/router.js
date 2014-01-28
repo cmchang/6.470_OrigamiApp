@@ -63,7 +63,8 @@ Router.map(function() {
         Session.set("currentTrip", {
           time: "evening",
           type: 'friends',
-          energy: 'conversation'
+          energy: 'conversation',
+          neighborhood: 'Area 2/MIT'
         });
       }
     ]
@@ -110,6 +111,7 @@ Router.map(function() {
     before: filters.requireAuthentication,
     data : function() {
       return {
+        badges: Meteor.user().badges,
         trips: Trips.find({})
       };
     }

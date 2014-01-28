@@ -48,33 +48,33 @@ Template.eventDetail.events({
 
 ///// Pfold /////
 
-Template.tripDetail.rendered = function() {
+// Template.tripDetail.rendered = function() {
   var markers = {};
-  var tO = -1;
+  // var tO = -1;
   
-  this.data.tripEvents.observeChanges({
+  Events.find({}).observeChanges({
     added: function( _id, fields ) {
       var loc = [fields.location.latitude, fields.location.longitude];
       markers[_id] = L.marker(loc, {
         _id: _id
       }).addTo(window.markersLayer).bindPopup(fields.name);
 
-      Meteor.clearTimeout(tO);
-      tO = Meteor.setTimeout(function(){
+      // Meteor.clearTimeout(tO);
+      // tO = Meteor.setTimeout(function(){
         var bounds = $.map( markers, function( value, indexOrKey ) {
           return value.getLatLng();
         });
         window.map.fitBounds(bounds, {
           paddingTopLeft: [20, 80],
-          paddingBottomRight: [300, 20]
+          paddingBottomRight: [400, 20]
         });
-      }, 1000);
+      // }, 1000);
     },
     removed: function( _id ) {
       window.markersLayer.removeLayer(markers[_id]);
     }
   });
-};
+// };
 
 Template.tripDetail.destroyed = function() {
   // clear all markers

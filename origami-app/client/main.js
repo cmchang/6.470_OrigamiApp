@@ -56,6 +56,8 @@ yelpQuery = function( terms, location, callback ) {
 rollTrip = function( tripId ) {
   var trip = Trips.findOne( tripId );
 
+  console.log(trip);
+
   var megaFun = {
     morning: {
         meal: {

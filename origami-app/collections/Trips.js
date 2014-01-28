@@ -16,7 +16,7 @@ Trips.deny({
 });
 
 Meteor.methods({
-  insertTrip: function( timeOfDay, mood, energy ) {
+  insertTrip: function( neighborhood, timeOfDay, mood, energy ) {
     var user = Meteor.user();
 
     // ensure the user is logged in
@@ -25,6 +25,7 @@ Meteor.methods({
 
     var trip = {
       userId: user._id,
+      neighborhood: neighborhood,
       timeOfDay: timeOfDay,
       mood: mood,
       energy: energy,

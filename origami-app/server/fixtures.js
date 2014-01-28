@@ -10,6 +10,11 @@ var betaDebug = {
       profile: {
         name: null,
         imageURL: null,
+        badges: [
+          "badge1",
+          "badge2",
+          "badge3"
+        ]
       }
     });
   },

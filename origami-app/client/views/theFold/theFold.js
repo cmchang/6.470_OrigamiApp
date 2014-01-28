@@ -42,6 +42,7 @@ Template.theFold.events({
 			changeModal($("#modal3"), $("#modal4"));
 		}else if(modalID === "modal4"){
 			Meteor.call("insertTrip",
+				currentTrip.neighborhood,
 				currentTrip.time,
 				currentTrip.type,
 				currentTrip.energy,
@@ -61,6 +62,14 @@ Template.theFold.events({
 		Session.set("currentTrip", currentTrip);
 
 	},
+
+	'change .neighborhSel': function( e, template ) {
+		var currentTrip = Session.get("currentTrip");
+		var $neighborhoodSel = $(e.target).find("option:selected");
+		currentTrip["neighborhood"] = $neighborhoodSel.text();
+		Session.set("currentTrip", currentTrip);
+	},
+
 	'click .right_arrow' : function(e){
 		if ($(e.target.parentElement).hasClass("0")){
 			increaseDay(0);
