@@ -92,20 +92,18 @@ Template.map.rendered = function() {
     });
     neighborhoodsLayer.addTo(map);
 
-    // Populate neighborhoods layer
+    // Populate Boston neighborhoods layer
     $.getJSON('/json/boston.json', function (data) {
       _.each(data.features, function(feature) {
-        // console.log(neighborhoods);
-        // console.log(feature.properties);
-        // $.inArray(feature.properties.label, neighborhoods);
-        // window.neighborhoods.push(String(feature.properties.label));
-        if ($.inArray(feature.properties.label, neighborhoods) > -1){
-          // window.neighborhoods.push(feature.properties.label);
           neighborhoodsLayer.addData(feature);
-        }
       });
+    });
 
-
+    // Populate Cambridge neighborhoods layer
+    $.getJSON('/json/cambridge.json', function (data) {
+      _.each(data.features, function(feature) {
+          neighborhoodsLayer.addData(feature);
+      });
     });
 
 

@@ -45,6 +45,7 @@ Template.eventDetail.events({
 Template.tripDetail.rendered = function() {
   var markers = {};
   var tO = -1;
+  
   this.data.tripEvents.observeChanges({
     added: function( _id, fields ) {
       var loc = [fields.location.latitude, fields.location.longitude];
