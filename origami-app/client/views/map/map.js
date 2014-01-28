@@ -1,3 +1,45 @@
+tO = -1;
+window.markers = {};
+Template.map.created = function() {
+  Events.find({}).observeChanges({
+    added: function( _id, fields ) {
+      var loc = [fields.location.latitude, fields.location.longitude];
+      var marker = new L.marker(loc, {
+        _id: _id,
+        opacity: 0.5
+      }).on('mouseover', function(e){
+        // scroll to list marker
+        $('.the-fold').animate({
+            scrollTop: $("#li-"+_id).offset().top + 100
+        }, 1000);
+        // highlight list element
+        $("#li-"+_id).addClass("hovered");
+        // fill in map marker
+        e.target.setOpacity(1.0);
+      }).on('mouseout', function(e){
+        $("#li-"+_id).removeClass("hovered");
+        e.target.setOpacity(0.5);
+      }).bindPopup(fields.name);
+
+      window.markersLayer.addLayer(marker)
+      markers[marker.options._id] = marker;
+
+      // waitAndZoom();
+    },
+    changed: function( _id, fields ) {
+      // var marker = markers[_id];
+    },
+    removed: function( _id ) {
+      var marker = markers[_id];
+      if( window.markersLayer.hasLayer(marker)) {
+        window.markersLayer.removeLayer(marker);
+        delete markers[_id];
+      }
+    }
+  });
+};
+
+
 mapExists = false;
 Template.map.rendered = function() {
 
@@ -12,8 +54,8 @@ Template.map.rendered = function() {
 
 
     // Add default OSM image tiles
-    // var mapTileURL = 'http://{s}.tile.cloudmade.com/4f8a96ea698c4630b8abdc34097f92e6/119638/256/{z}/{x}/{y}.png';    // Paid tiles
-    var mapTileURL = 'http://otile1.mqcdn.com/tiles/1.0.0/osm/{z}/{x}/{y}.png';  // Free option 1
+    var mapTileURL = 'http://{s}.tile.cloudmade.com/4f8a96ea698c4630b8abdc34097f92e6/119638/256/{z}/{x}/{y}.png';    // Paid tiles
+    // var mapTileURL = 'http://otile1.mqcdn.com/tiles/1.0.0/osm/{z}/{x}/{y}.png';  // Free option 1
     // var mapTileURL = 'http://a.tile.stamen.com/toner/{z}/{x}/{y}.png';           // Free option 2
 
     var baseLayer = new L.TileLayer(mapTileURL, {

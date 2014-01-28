@@ -1,5 +1,3 @@
-markers = {};
-
 Template.tripDetail.events({
   'click .re-roll-trip': function( e, template ) {
     e.preventDefault();
@@ -19,43 +17,17 @@ Template.tripDetail.events({
 // Unfold the trip detail view - TODO
 Template.tripDetail.rendered = function() {
   var tO = -1;
-  
-  Events.find({}).observeChanges({
-    added: function( _id, fields ) {
-      var loc = [fields.location.latitude, fields.location.longitude];
-      markers[_id] = L.marker(loc, {
-        opacity: 0.5
-      })
-      .on('mouseover', function(e){
-        $("#li-"+_id).addClass("hovered");
-        e.target.setOpacity(1.0);
-      })
-      .on('mouseout', function(e){
-        $("#li-"+_id).removeClass("hovered");
-        e.target.setOpacity(0.5);
-      })
-      .addTo(window.markersLayer)
-      .bindPopup(fields.name);
-
-      // Meteor.clearTimeout(tO);
-      // tO = Meteor.setTimeout(function(){
-      //   var bounds = $.map( markers, function( value, indexOrKey ) {
-      //     return value.getLatLng();
-      //   });
-      //   window.map.fitBounds(bounds, {
-      //     paddingTopLeft: [20, 80],
-      //     paddingBottomRight: [400, 20]
-      //   });
-      // }, 1000);
-    },
-    // updated: function( _id, fields ) {
-    //   markers[_id].
-    // },
-    removed: function( _id ) {
-      console.log(markers[_id]);
-      window.markersLayer.removeLayer(markers[_id]);
-    }
-  });
+  Meteor.clearTimeout(tO);
+  tO = Meteor.setTimeout(function(){
+    var bounds = $.map( markers, function( value, indexOrKey ) {
+      return value.getLatLng();
+    });
+    window.map.fitBounds(bounds, {
+      paddingTopLeft: [20, 80],
+      paddingBottomRight: [400, 20]
+    });    
+  }, 1000);
+}
 
   // if( !rendered ) {
   //   var functionator = function() {
@@ -72,7 +44,7 @@ Template.tripDetail.rendered = function() {
   //     }, 500);
   //   };
   // }
-};
+// };
 
 Template.tripDetail.destroyed = function() {
   // catch-all to clear any remaining markers and/or pfold data - TODO
