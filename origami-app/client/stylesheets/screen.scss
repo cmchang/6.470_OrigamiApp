@@ -282,8 +282,13 @@ path.building { stroke: #f00; fill: #f00; }
 }
 
 .neighborhSel{
-  border: 1px solid grey;
+  border: 1px solid #00b6ff;
+  background: #00b6ff;
   height: 27px;
+  color: white;
+  font-family: Helvetica neue;
+  font-weight: 300;
+  font-size: 15px;
 }
 
 // Modal-hero

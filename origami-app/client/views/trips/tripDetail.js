@@ -38,6 +38,13 @@ Template.eventDetail.events({
   'click .glyphicon-remove': function(e, template){
     var evtDet= $(e.target.parentNode.parentNode.parentNode.parentNode);
     evtDet.toggle("slide", 500, function(){evtDet.remove()}) 
+  },
+  'click .glyphicon-repeat': function(e, template){
+    var evtDet= $(e.target.parentNode.parentNode.parentNode.parentNode);
+    evtDet.toggle("slide", 500, function(){
+      evtDet.remove()
+
+    }); 
   }
 
 });
