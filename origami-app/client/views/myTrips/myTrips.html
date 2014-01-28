@@ -1,7 +1,7 @@
 <template name="myTrips">
 <div class = "my_trips">
 <div><h2> My Trips History </h2></div>
-  {{#if trips}}
+  {{#if showTrips}}
     <ul>
       {{#each trips}}
         <li><a href="{{pathFor 'tripDetail' this}}">Trip: {{name}}</a></li>

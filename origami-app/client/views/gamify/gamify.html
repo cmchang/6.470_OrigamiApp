@@ -6,6 +6,9 @@
 	<div class = "stats">
 		<div class = "badges">
 			<h2>My Badges</h2>
+			{{#each allBadges}}
+				{{> genericBadge}}
+			{{/each}}
 			
 
 		</div>
@@ -15,4 +18,8 @@
 		</div>
 	</div>
 </div>
+</template>
+
+<template name="genericBadge">
+	{{name}} <img src="{{image}}">
 </template>

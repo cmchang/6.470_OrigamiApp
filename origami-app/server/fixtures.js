@@ -80,6 +80,17 @@ var betaDebug = {
   }
 };
 
+var seedBadges = function() {
+  Badges.insert({
+    name: "Hopeless Romantic",
+    image: "/images/badges/image.png"
+  });
+  Badges.insert({
+    name: "Sushi Inamoratum",
+    image: "/images/badges/image1.png"
+  });
+};
+
 
 
 Meteor.startup( function() {
@@ -89,4 +100,5 @@ Meteor.startup( function() {
   // var betaUserId = betaDebug.seedUsers();
   // betaDebug.clearTrips();
   // betaDebug.seedTrip( betaUserId );
+  // seedBadges();
 });

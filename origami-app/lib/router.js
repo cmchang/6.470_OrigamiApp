@@ -111,6 +111,11 @@ Router.map(function() {
     before: filters.requireAuthentication,
     data : function() {
       return {
+        allBadges: [
+          {name: "Hopeless Romantic", image: "/images/badges/image.png"},
+          {name: "Sushi Inamoratum", image: "/images/badges/image2.png"},
+          {name: "Gorilla", image: "/images/badges/image3.png"}
+        ],
         badges: Meteor.user().badges,
         trips: Trips.find({})
       };

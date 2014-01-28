@@ -9,3 +9,7 @@ Meteor.publish("tripDetail", function(tripId){
 Meteor.publish("tripEvents", function(tripId){
   return Events.find({tripId: tripId});
 });
+
+Meteor.publish("allBadges", function() {
+  return Badges.find({});
+});
