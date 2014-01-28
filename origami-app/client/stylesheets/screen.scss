@@ -157,8 +157,8 @@ path.building { stroke: #f00; fill: #f00; }
     line-height: 51px;
     font-size: 13px;
     font-weight: 200;
-    // margin-left: -21px;
     font-style: italic;
+    opacity: .7;
   }
   .user-links {
 
@@ -420,13 +420,25 @@ path.building { stroke: #f00; fill: #f00; }
 
 
 //badges
-.badge{
-  width: 130px;
-  height: 130px;
+.badgeContainer{
   display: inline-block;
-  margin: 5px;
-  vertical-align: middle;
-  text-align: center;
-  line-height: 130px;
-  opacity:.4;
+  vertical-align: top;
+  .badge{
+    width: 130px;
+    height: 130px;
+    margin: 5px;
+    vertical-align: middle;
+    text-align: center;
+    line-height: 130px;
+  }  
+  .badgeDescription{
+    width: 130px;
+    text-align: center;
+  }
+  .unclaimedBadge{
+    opacity:.3;
+  }
+  .claimedBadge{
+    opacity:1;
+  }
 }
