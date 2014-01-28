@@ -4,6 +4,7 @@ Template.gamify.helpers({
   }
 });
 
+<<<<<<< HEAD
 tempOpacity = "";
 Template.gamify.events({
 	'mouseover .badge': function( e, template ) {
@@ -16,4 +17,10 @@ Template.gamify.events({
 		$(e.target.parentNode.childNodes[1]).css("opacity", tempOpacity);
 	}
 
+=======
+Template.leader.helpers({
+  leaderboardName: function() {
+    return this.profile.name || this.emails[0].address;
+  }
+>>>>>>> c84e2a09512835bcdb503d9c1b8f602fbeea9a3e
 });
