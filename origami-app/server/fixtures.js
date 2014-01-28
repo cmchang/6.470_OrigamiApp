@@ -9,9 +9,9 @@
 //   });
 // }
 
-Meteor.users.remove({});
-Trips.remove({});
-Events.remove({});
+// Meteor.users.remove({});
+// Trips.remove({});
+// Events.remove({});
 
 if( Badges.find().count() === 0 ) {
 
